@@ -1,0 +1,138 @@
+---
+const projects = [
+	{
+		title: 'Modern Office Complex',
+		image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+		location: 'New Classic | Dubai, UAE | 2022',
+	},
+	{
+		title: 'Luxury Design',
+		image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop',
+		location: 'Premium Residential | 2023',
+	},
+	{
+		title: 'Management Project',
+		image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
+		location: 'Strategic Development | 2023',
+	},
+	{
+		title: 'Commercial Project',
+		image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+		location: 'Modern Complex | 2022',
+	},
+];
+---
+
+<section id="projects" class="w-full bg-white pb-10 md:pb-16">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="max-w-7xl mx-auto">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+				<div class="animate-fade-in-left">
+					<p class="text-red-600 text-lg md:text-xl font-semibold mb-2">
+						Expertise Reflected in Every Project
+					</p>
+					<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+						Our Projects
+					</h2>
+					<p class="text-gray-600 text-lg mb-6">
+						At Valency Engineering Consultancy, we are committed to delivering projects that make a lasting impact through creative, precise, and high-quality design solutions.
+					</p>
+				</div>
+				<div class="flex items-end justify-end animate-fade-in-right">
+					<button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center gap-2 group">
+						<span>Learn more</span>
+						<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<!-- Projects Gallery -->
+			<div class="overflow-x-auto pb-4 scrollbar-hide">
+				<div class="flex gap-6 md:gap-8" style="min-width: max-content;">
+					{projects.map((project, index) => (
+						<div 
+							class="project-card relative flex-shrink-0 w-80 md:w-96 h-96 md:h-[450px] rounded-xl overflow-hidden group cursor-pointer animate-fade-in-left"
+							style={`animation-delay: ${index * 0.3}s;`}
+						>
+							<img
+								src={project.image}
+								alt={project.title}
+								class="project-card-image w-full h-full object-cover transition-transform duration-500"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black-900/20 via-black-900/40 to-transparent"></div>
+							<div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+								<h3 class="text-2xl md:text-3xl font-bold mb-2">{project.title}</h3>
+								{project.location && (
+									<p class="text-white/90 text-sm md:text-base">{project.location}</p>
+								)}
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const projectsSection = document.getElementById('projects');
+	if (projectsSection) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			},
+			{ threshold: 0.1 }
+		);
+		observer.observe(projectsSection);
+	}
+
+	// Project card hover effects
+	document.querySelectorAll('.project-card').forEach((card) => {
+		const htmlCard = card as HTMLElement;
+		const image = card.querySelector('.project-card-image') as HTMLElement | null;
+
+		htmlCard.addEventListener('mouseenter', () => {
+			htmlCard.style.transform = 'scale(1.05) translateY(-5px)';
+			if (image) {
+				image.style.transform = 'scale(1.1)';
+			}
+		});
+
+		htmlCard.addEventListener('mouseleave', () => {
+			htmlCard.style.transform = 'scale(1) translateY(0)';
+			if (image) {
+				image.style.transform = 'scale(1)';
+			}
+		});
+	});
+</script>
+
+<style>
+	.animate-fade-in-left {
+		opacity: 0;
+		transform: translateX(-60px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	}
+
+	.animate-fade-in-right {
+		opacity: 0;
+		transform: translateX(60px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	}
+
+	#projects.visible .animate-fade-in-left,
+	#projects.visible .animate-fade-in-right {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	.project-card {
+		transition: transform 1s ease-out;
+	}
+</style>

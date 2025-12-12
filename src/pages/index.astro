@@ -1,9 +1,26 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import BuiltForFuture from "../components/BuiltForFuture.astro";
+import Statistics from "../components/Statistics.astro";
+import Services from "../components/Services.astro";
+import Projects from "../components/Projects.astro";
+import WhyValency from "../components/WhyValency.astro";
+import Analytics from "../components/Analytics.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <Header />
+  <main class="bg-white">
+    <Hero />
+    <BuiltForFuture />
+    <Services />
+    <Projects />
+    <WhyValency />
+    <Analytics />
+    <Statistics />
+  </main>
+  <Footer />
 </Layout>

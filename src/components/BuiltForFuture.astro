@@ -1,0 +1,148 @@
+---
+---
+
+<section id="built-for-future" class="w-full bg-white pb-10 md:pb-16">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="max-w-7xl mx-auto">
+			<!-- Header Section -->
+			<div class="text-center mb-12 built-future-header">
+				<p class="text-red-600 text-lg md:text-xl font-semibold mb-4">
+					We Design with Vision, We Build with Confidence
+				</p>
+				<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+					Built for the future
+				</h2>
+				<p class="text-gray-600 text-lg max-w-3xl mx-auto">
+					Trend Engineering offers innovative design and project management solutions aligned with future architecture and construction trends
+				</p>
+			</div>
+
+			<!-- Two Column Layout -->
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<!-- Left Column: Features -->
+				<div class="space-y-8 built-future-content">
+					<!-- Feature 1 -->
+					<div>
+						<div class="flex items-start gap-3 mb-3">
+							<span class="text-red-600 text-2xl font-bold">+</span>
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900">Client-Centered Focus</h3>
+						</div>
+						<p class="text-gray-600 text-lg ml-8">
+							We listen to our clients' needs and transform their vision into reality while ensuring the highest engineering standards are met.
+						</p>
+					</div>
+
+					<!-- Feature 2 -->
+					<div>
+						<div class="flex items-start gap-3 mb-3">
+							<span class="text-red-600 text-2xl font-bold">+</span>
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900">Passionate About Innovation</h3>
+						</div>
+						<p class="text-gray-600 text-lg ml-8">
+							Our team of creative engineers and designers is committed to excellence in every project phase, guaranteeing quality and precision.
+						</p>
+					</div>
+
+					<!-- Feature 3 -->
+					<div>
+						<div class="flex items-start gap-3 mb-3">
+							<span class="text-red-600 text-2xl font-bold">+</span>
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900">Our Achievements Make a Difference</h3>
+						</div>
+						
+						<!-- Achievement Box -->
+						<div class="ml-8 mt-4 flex items-center gap-4 bg-blue-50 p-6 rounded-lg">
+							<div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+								<svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+								</svg>
+							</div>
+							<div>
+								<div class="text-4xl md:text-5xl font-bold text-gray-900 mb-1">120+</div>
+								<p class="text-gray-600">Projects successfully delivered across diverse sectors</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Learn More Button -->
+					<div class="ml-8">
+						<button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors flex items-center gap-2 group">
+							<span>Learn more</span>
+							<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+
+				<!-- Right Column: Image -->
+				<div class="relative h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-xl built-future-image">
+					<img 
+						src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" 
+						alt="Engineers working" 
+						class="w-full h-full object-cover"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const builtForFutureSection = document.getElementById('built-for-future');
+	if (builtForFutureSection) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						
+						// Animate header (fade in)
+						const header = entry.target.querySelector('.built-future-header') as HTMLElement | null;
+						if (header) {
+							header.style.opacity = '1';
+						}
+						
+						// Animate content (left to right)
+						const content = entry.target.querySelector('.built-future-content') as HTMLElement | null;
+						if (content) {
+							content.style.opacity = '1';
+							content.style.transform = 'translateX(0)';
+						}
+						
+						// Animate image (right to left)
+						const image = entry.target.querySelector('.built-future-image') as HTMLElement | null;
+						if (image) {
+							image.style.opacity = '1';
+							image.style.transform = 'translateX(0)';
+						}
+					}
+				});
+			},
+			{ threshold: 0.2 }
+		);
+		observer.observe(builtForFutureSection);
+	}
+</script>
+
+<style>
+	.built-future-header {
+		opacity: 0;
+		transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.built-future-content {
+		opacity: 0;
+		transform: translateX(-100px);
+		transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+		transition-delay: 0.3s;
+	}
+
+	.built-future-image {
+		opacity: 0;
+		transform: translateX(100px);
+		transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+		transition-delay: 0.5s;
+	}
+</style>
+

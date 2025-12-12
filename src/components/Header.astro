@@ -1,0 +1,79 @@
+---
+---
+
+<header id="main-header" class="w-full bg-black/90 border-gray-200 sticky top-0 z-50 transition-transform duration-400 ease-out">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex items-center justify-between h-11 md:h-16">
+			<!-- Left: Logo/Home -->
+			<div class="flex-shrink-0">
+				<a href="/" class="text-2xl font-bold text-white hover:text-white transition-colors">
+					Valency
+				</a>
+			</div>
+
+			<!-- Center: Navigation Menu -->
+			<nav class="hidden md:flex items-center space-x-8 flex-1 justify-center">
+				<a href="#modules" class="text-white hover:text-gray-900 transition-colors font-medium">
+					Modules
+				</a>
+				<a href="#features" class="text-white hover:text-gray-900 transition-colors font-medium">
+					Features
+				</a>
+				<a href="#projects" class="text-white hover:text-gray-900 transition-colors font-medium">
+					Projects
+				</a>
+				<a href="#contact" class="text-white hover:text-gray-900 transition-colors font-medium">
+					Contact Us
+				</a>
+			</nav>
+
+			<!-- Right: Book a Demo Button -->
+			<div class="flex-shrink-0">
+				<button class="bg-white  text-black font-semibold px-4 py-1 pb-[6px] transition-colors shadow-sm hover:shadow-md rounded-3xl">
+					Demo
+				</button>
+			</div>
+		</div>
+	</div>
+</header>
+
+<script>
+	let lastScrollY = 0;
+	let ticking = false;
+	const scrollThreshold = 100;
+
+	const header = document.getElementById('main-header') as HTMLElement | null;
+	let isVisible = true;
+
+	function handleScroll() {
+		if (!ticking) {
+			window.requestAnimationFrame(() => {
+				const currentScrollY = window.scrollY;
+
+				if (currentScrollY < scrollThreshold) {
+					isVisible = true;
+				} else if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+					isVisible = false;
+				} else if (currentScrollY < lastScrollY) {
+					isVisible = true;
+				}
+
+				if (header) {
+					header.style.transform = isVisible ? 'translateY(0)' : 'translateY(-100%)';
+				}
+
+				lastScrollY = currentScrollY;
+				ticking = false;
+			});
+			ticking = true;
+		}
+	}
+
+	window.addEventListener('scroll', handleScroll, { passive: true });
+</script>
+
+<style>
+	header {
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+</style>

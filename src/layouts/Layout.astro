@@ -1,22 +1,39 @@
+---
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content="Valency - Transform your business with powerful automation and analytics" />
+		<title>Valency - Transform Your Business</title>
 	</head>
-	<body>
+	<body class="antialiased">
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+	
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+	
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
 	}
 </style>

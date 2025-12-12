@@ -1,0 +1,159 @@
+---
+const features = [
+	{
+		title: 'On-Time Delivery',
+		description: 'We value your time and ensure that every project is completed on schedule with no compromise on quality.',
+	},
+	{
+		title: 'Tailored Solutions',
+		description: 'We understand your needs and deliver engineering plans and designs that precisely match your requirements.',
+	},
+	{
+		title: 'Diverse Expertise',
+		description: 'Our team brings together experienced engineers and designers with deep technical knowledge and forward-thinking skills.',
+	},
+	{
+		title: 'Continuous Quality Assurance',
+		description: 'We oversee every project stage to guarantee that the final outcome aligns with the vision and specifications.',
+	},
+];
+
+const imageUrl = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop';
+const overlayText = 'In a world that demands precision, commitment, and innovative engineering, Valency delivers added value to every project through a holistic approach focused on details and long-term success.';
+---
+
+<section id="why-valency" class="w-full bg-white md:pb-16">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="max-w-7xl mx-auto">
+			<!-- Section Title -->
+			<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center animate-fade-in-up">
+				Why Valency?
+			</h2>
+			
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<!-- Left: Image with Overlay -->
+				<div 
+					class="why-valency-image relative h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-xl"
+					style="opacity: 0; transition: opacity 0.8s ease-out 0.2s;"
+				>
+					<img
+						src={imageUrl}
+						alt="Valency Team"
+						class="w-full h-full object-cover"
+					/>
+					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+					<div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+						<p class="text-lg md:text-xl leading-relaxed">
+							{overlayText}
+						</p>
+					</div>
+				</div>
+
+				<!-- Right: Features List -->
+				<div class="space-y-6">
+					{features.map((feature, index) => (
+						<div 
+							class={`why-valency-item group flex gap-4 p-6 rounded-lg transition-all duration-300 cursor-pointer bg-gray-50 shadow-sm hover:shadow-xl`}
+							style={`opacity: 0; transform: translateX(50px) translateY(20px) scale(0.9); transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); `}
+						>
+							<div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300 bg-blue-900">
+								<svg
+									class="w-6 h-6 text-white"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M5 13l4 4L19 7"
+									></path>
+								</svg>
+							</div>
+							<div>
+								<h3 class="text-xl md:text-2xl font-bold mb-2 text-gray-900 transition-colors duration-300">
+									{feature.title}
+								</h3>
+								<p class="leading-relaxed text-gray-600 transition-colors duration-300">
+									{feature.description}
+								</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const whyValencySection = document.getElementById('why-valency');
+	if (whyValencySection) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						
+						// Animate image
+						const image = entry.target.querySelector('.why-valency-image') as HTMLElement | null;
+						if (image) {
+							image.style.opacity = '1';
+						}
+						
+						// Animate items with smooth animation
+						const items = entry.target.querySelectorAll('.why-valency-item');
+						items.forEach((item) => {
+							const htmlItem = item as HTMLElement;
+							const index = Array.from(items).indexOf(item);
+							const delay = 0.5 + index * 0.3;
+							
+							setTimeout(() => {
+								htmlItem.style.opacity = '1';
+								htmlItem.style.transform = 'translateX(0) translateY(0) scale(1)';
+								
+								// After initial animation, remove inline transition to allow CSS hover transition
+								setTimeout(() => {
+									htmlItem.style.transition = '';
+								}, 1200);
+							}, delay * 1000);
+						});
+					}
+				});
+			},
+			{ threshold: 0.1 }
+		);
+		observer.observe(whyValencySection);
+	}
+
+	// Hover effects for feature items
+	document.querySelectorAll('.why-valency-item').forEach((item) => {
+		const htmlItem = item as HTMLElement;
+		htmlItem.addEventListener('mouseenter', () => {
+			htmlItem.style.transform = 'scale(1.05) translateY(-5px)';
+		});
+
+		htmlItem.addEventListener('mouseleave', () => {
+			htmlItem.style.transform = 'scale(1) translateY(0)';
+		});
+	});
+</script>
+
+<style>
+	.animate-fade-in-up {
+		opacity: 0;
+		transform: translateY(60px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	}
+
+	#why-valency.visible .animate-fade-in-up {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.why-valency-item {
+		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+</style>
