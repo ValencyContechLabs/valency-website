@@ -1,5 +1,6 @@
 ---
 const industries = [
+
 	{
 		title: 'Residential',
 		description: 'We manage residential construction projects with a strong focus on quality, safety, and timely delivery. From apartment complexes to large-scale housing developments, we coordinate all stakeholders to ensure smooth execution, efficient resource management, and homes built to last—while meeting regulatory and client expectations.',
@@ -15,25 +16,10 @@ const industries = [
 		description: 'Industrial projects demand precision, safety, and technical expertise. We manage factories, warehouses, and processing facilities by closely monitoring schedules, workflows, and risks. Our approach ensures minimal disruption, optimized performance, and strict adherence to safety and industry standards.',
 		image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
 	},
-		{
-			title: 'Healthcare',
-			description: 'Healthcare construction requires exceptional attention to detail and regulatory compliance. We manage hospitals, clinics, and medical facilities with a focus on safety, hygiene standards, and operational continuity, ensuring that critical healthcare environments are delivered efficiently and ready for immediate use.',
-			image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop',
-		},
-	{
-		title: 'Educational',
-		description: 'From schools to large academic campuses, we deliver education facilities that support learning and growth. We coordinate complex timelines and multiple stakeholders to ensure safe, durable, and future-ready educational environments are completed on time and within budget.',
-		image: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&h=600&fit=crop',
-	},
 	{
 		title: 'Government / Public Sector',
 		description: 'We support public sector and government projects with transparent reporting, strict compliance, and accountability. Our experience includes infrastructure and civic developments where efficiency, documentation, and adherence to public standards are essential for successful delivery.',
 		image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop',
-	},
-	{
-		title: 'Hospitality',
-		description: 'Hospitality projects demand speed, quality, and attention to guest experience. We manage hotels, resorts, and leisure facilities with a focus on timely completion, refined finishes, and seamless coordination—helping clients open doors sooner without compromising on quality.',
-		image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop',
 	},
 ];
 ---
@@ -61,17 +47,17 @@ const industries = [
 					{industries.map((industry, index) => (
 						<div 
 							class="project-card relative flex-shrink-0 w-64 md:w-72 h-80 md:h-[360px] rounded-xl overflow-hidden group cursor-pointer animate-fade-in-left"
-							style={`animation-delay: ${index * 0.3}s;`}
+							style={`animation-delay: ${index * 0.6}s;`}
 						>
 							<img
 								src={industry.image}
 								alt={industry.title}
-								class="project-card-image w-full h-full object-cover transition-transform duration-500"
+								class="project-card-image w-full h-full object-cover transition-transform duration-1000"
 							/>
-							<div class="industry-gradient absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/20 opacity-0 transition-opacity duration-300"></div>
+							<div class="industry-gradient absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/20 opacity-0 transition-opacity duration-600"></div>
 							<div class="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white z-10">
 								<h3 class="text-xl md:text-2xl font-bold mb-2">{industry.title}</h3>
-								<p class="industry-description text-white/95 text-xs md:text-sm leading-relaxed opacity-0 max-h-0 overflow-hidden transition-all duration-300">
+								<p class="industry-description text-white/95 text-xs md:text-sm leading-relaxed opacity-0 max-h-0 overflow-hidden transition-all duration-600">
 									{industry.description}
 								</p>
 							</div>
@@ -140,13 +126,13 @@ const industries = [
 	.animate-fade-in-left {
 		opacity: 0;
 		transform: translateX(-60px);
-		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+		transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 	}
 
 	.animate-fade-in-right {
 		opacity: 0;
 		transform: translateX(60px);
-		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+		transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 	}
 
 	#projects.visible .animate-fade-in-left,
@@ -156,7 +142,7 @@ const industries = [
 	}
 
 	.project-card {
-		transition: transform 1s ease-out;
+		transition: transform 2s ease-out;
 	}
 
 	.scrollbar-hide {

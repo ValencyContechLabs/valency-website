@@ -154,7 +154,7 @@ import Footer from "../components/Footer.astro";
                 <button 
                   type="submit"
                   id="submit-btn"
-                  class="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  class="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-600 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Get started
                 </button>
@@ -323,7 +323,7 @@ import Footer from "../components/Footer.astro";
   .about-hero-bg-image {
     opacity: 0;
     transform: scale(1.1);
-    animation: aboutHeroBgFadeIn 1.2s ease-out forwards;
+    animation: aboutHeroBgFadeIn 2.4s ease-out forwards;
   }
 
   @keyframes aboutHeroBgFadeIn {
@@ -336,15 +336,15 @@ import Footer from "../components/Footer.astro";
   .about-hero-title {
     opacity: 0;
     transform: translateY(30px);
-    animation: aboutHeroFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.3s;
+    animation: aboutHeroFadeIn 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.6s;
   }
 
   .about-hero-description {
     opacity: 0;
     transform: translateY(30px);
-    animation: aboutHeroFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.5s;
+    animation: aboutHeroFadeIn 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 1s;
   }
 
   @keyframes aboutHeroFadeIn {
@@ -358,27 +358,27 @@ import Footer from "../components/Footer.astro";
   .demo-section-header {
     opacity: 0;
     transform: translateY(30px);
-    animation: demoSectionFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: demoSectionFadeIn 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
 
   .demo-form-container {
     opacity: 0;
     transform: translateX(-30px);
-    animation: demoFormFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.2s;
+    animation: demoFormFadeIn 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.4s;
   }
 
   .demo-features-container {
     opacity: 0;
     transform: translateX(30px);
-    animation: demoFeaturesFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.3s;
+    animation: demoFeaturesFadeIn 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.6s;
   }
 
   .demo-feature-item {
     opacity: 0;
     transform: translateX(20px);
-    animation: demoFeatureItemFadeIn 0.6s ease-out forwards;
+    animation: demoFeatureItemFadeIn 1.2s ease-out forwards;
   }
 
   @keyframes demoSectionFadeIn {
