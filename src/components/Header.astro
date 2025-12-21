@@ -1,13 +1,14 @@
 ---
+import logoLarge from '../assets/logo_large.png';
 ---
 
 <header id="main-header" class="w-full bg-black/90 border-gray-200 sticky top-0 z-50 transition-transform duration-400 ease-out">
-	<div class="container mx-auto px-2 sm:px-4 lg:px-6">
+	<div class="mx-10 ">
 		<div class="flex items-center justify-between h-11 md:h-16">
 			<!-- Left: Logo/Home -->
 			<div class="flex-shrink-0">
-				<a href="/" class="text-2xl font-bold text-white hover:text-white transition-colors">
-					Valency
+				<a href="/" class="flex items-center hover:opacity-80 transition-opacity">
+					<img src={logoLarge.src} alt="Valency Logo" class="h-full max-h-11 md:max-h-16 w-auto" />
 				</a>
 			</div>
 
@@ -24,12 +25,80 @@
 				</a>
 			</nav>
 
-			<!-- Right: Book a Demo Button -->
-			<div class="flex-shrink-0">
-				<button class="bg-white  text-black font-semibold px-4 py-1 pb-[6px] transition-colors shadow-sm hover:shadow-md rounded-3xl">
+			<!-- Right: Book a Demo Button and Mobile Menu Toggle -->
+			<div class="flex items-center gap-3">
+				<!-- Desktop Demo Button -->
+				<a href="/about#request-demo" class="hidden md:inline-block bg-white text-black font-semibold px-4 py-1 pb-[6px] transition-colors shadow-sm hover:shadow-md rounded-3xl">
 					Demo
+				</a>
+				
+				<!-- Mobile Menu Toggle Button -->
+				<button 
+					id="mobile-menu-toggle"
+					class="md:hidden text-white p-2 focus:outline-none focus:ring-2 focus:ring-white/50 rounded"
+					aria-label="Toggle menu"
+				>
+					<svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+					<svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
 				</button>
 			</div>
+		</div>
+	</div>
+
+	<!-- Mobile Menu Drawer -->
+	<div 
+		id="mobile-menu-drawer"
+		class="fixed inset-y-0 right-0 w-64 bg-black z-[100] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl"
+		style="background-color: #000000;"
+	>
+		<div class="flex flex-col h-full">
+			<!-- Drawer Header -->
+			<div class="flex items-center justify-between p-4 border-b border-white/20">
+				<span class="text-white font-bold text-lg">Menu</span>
+				<button 
+					id="mobile-menu-close"
+					class="text-white p-2 focus:outline-none focus:ring-2 focus:ring-white/50 rounded"
+					aria-label="Close menu"
+				>
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+			</div>
+
+			<!-- Drawer Navigation -->
+			<nav class="flex-1 p-4 space-y-4">
+				<a 
+					href="/" 
+					class="block text-white hover:text-gray-300 transition-colors font-medium py-2 border-b border-white/10 mobile-menu-link"
+				>
+					Home
+				</a>
+				<a 
+					href="/about" 
+					class="block text-white hover:text-gray-300 transition-colors font-medium py-2 border-b border-white/10 mobile-menu-link"
+				>
+					About Us
+				</a>
+				<a 
+					href="/about#request-demo" 
+					class="block bg-white text-black font-semibold px-6 py-3 rounded-3xl text-center transition-colors shadow-sm hover:shadow-md mobile-menu-link mt-4"
+				>
+					Book a Demo
+				</a>
+			</nav>
+		</div>
+	</div>
+
+	<!-- Overlay -->
+	<div 
+		id="mobile-menu-overlay"
+		class="fixed inset-0 bg-black/60 z-[90] opacity-0 invisible transition-opacity duration-300 md:hidden"
+	></div>
 		</div>
 	</div>
 </header>
@@ -67,6 +136,63 @@
 	}
 
 	window.addEventListener('scroll', handleScroll, { passive: true });
+
+	// Mobile Menu Toggle
+	const menuToggle = document.getElementById('mobile-menu-toggle');
+	const menuClose = document.getElementById('mobile-menu-close');
+	const menuDrawer = document.getElementById('mobile-menu-drawer');
+	const menuOverlay = document.getElementById('mobile-menu-overlay');
+	const menuIcon = document.getElementById('menu-icon');
+	const closeIcon = document.getElementById('close-icon');
+	const menuLinks = document.querySelectorAll('.mobile-menu-link');
+
+	function openMenu() {
+		if (menuDrawer && menuOverlay && menuIcon && closeIcon) {
+			menuDrawer.classList.remove('translate-x-full');
+			menuOverlay.classList.remove('opacity-0', 'invisible');
+			menuOverlay.classList.add('opacity-100', 'visible');
+			menuIcon.classList.add('hidden');
+			closeIcon.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+	}
+
+	function closeMenu() {
+		if (menuDrawer && menuOverlay && menuIcon && closeIcon) {
+			menuDrawer.classList.add('translate-x-full');
+			menuOverlay.classList.remove('opacity-100', 'visible');
+			menuOverlay.classList.add('opacity-0', 'invisible');
+			menuIcon.classList.remove('hidden');
+			closeIcon.classList.add('hidden');
+			document.body.style.overflow = '';
+		}
+	}
+
+	if (menuToggle) {
+		menuToggle.addEventListener('click', openMenu);
+	}
+
+	if (menuClose) {
+		menuClose.addEventListener('click', closeMenu);
+	}
+
+	if (menuOverlay) {
+		menuOverlay.addEventListener('click', closeMenu);
+	}
+
+	// Close menu when clicking on a link
+	menuLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			setTimeout(closeMenu, 100);
+		});
+	});
+
+	// Close menu on escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && menuDrawer && !menuDrawer.classList.contains('translate-x-full')) {
+			closeMenu();
+		}
+	});
 </script>
 
 <style>

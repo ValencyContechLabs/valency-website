@@ -10,10 +10,10 @@ import Footer from "../components/Footer.astro";
     <!-- Hero Section -->
     <section id="about-hero" class="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden mb-16">
       <!-- Background Image with Overlay -->
-      <div class="absolute inset-0">
+      <div class="absolute inset-0 about-hero-bg-container">
         <img 
           src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop" 
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover about-hero-bg-image"
           alt="About Valency"
         />
         <div class="absolute inset-0 bg-black/50"></div>
@@ -22,10 +22,10 @@ import Footer from "../components/Footer.astro";
       <!-- Content -->
       <div class="relative z-10 container mx-auto px-2 sm:px-4 lg:px-6 h-full flex items-center min-h-[500px] md:min-h-[600px]">
         <div class="max-w-4xl text-white">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 about-hero-title">
             About Us
           </h1>
-          <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+          <p class="text-xl md:text-2xl text-white/90 leading-relaxed about-hero-description">
             At Valency, we combine deep expertise in construction management and cutting-edge technology to deliver exceptional results.
           </p>
         </div>
@@ -53,7 +53,7 @@ import Footer from "../components/Footer.astro";
       <div class="container mx-auto px-2 sm:px-4 lg:px-6">
         <div class="max-w-7xl mx-auto">
           <!-- Header -->
-          <div class="text-center mb-12">
+          <div class="text-center mb-12 demo-section-header">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Request a Demo
             </h2>
@@ -65,7 +65,7 @@ import Footer from "../components/Footer.astro";
           <!-- Two Column Layout -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <!-- Left: Form -->
-            <div class="bg-white rounded-xl p-8 shadow-lg">
+            <div class="bg-white rounded-xl p-8 shadow-lg demo-form-container">
               <form id="demo-request-form" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -163,33 +163,33 @@ import Footer from "../components/Footer.astro";
             </div>
 
             <!-- Right: Features -->
-            <div class="space-y-6">
+            <div class="space-y-6 demo-features-container">
               <ul class="space-y-6">
-                <li class="flex items-start gap-3">
+                <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.2s;">
                   <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
                   <p class="text-gray-700 text-lg leading-relaxed">
                     <strong>Streamline Billing</strong> through one-click generation of accurate invoices directly from daily data.
                   </p>
                 </li>
-                <li class="flex items-start gap-3">
+                <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.3s;">
                   <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
                   <p class="text-gray-700 text-lg leading-relaxed">
                     <strong>Provide Real-Time Project Insights</strong> for precise decision-making and rapid issue resolution.
                   </p>
                 </li>
-                <li class="flex items-start gap-3">
+                <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.4s;">
                   <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
                   <p class="text-gray-700 text-lg leading-relaxed">
                     <strong>Offer Automated Projections</strong> to anticipate project timelines, costs, and resource requirements.
                   </p>
                 </li>
-                <li class="flex items-start gap-3">
+                <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.5s;">
                   <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
                   <p class="text-gray-700 text-lg leading-relaxed">
                     <strong>Optimize Workforce and Productivity Tracking</strong> through detailed, activity-wise reports.
                   </p>
                 </li>
-                <li class="flex items-start gap-3">
+                <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.6s;">
                   <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
                   <p class="text-gray-700 text-lg leading-relaxed">
                     <strong>Support Data-Driven Decisions</strong> with easy access to granular insights into project progress and costs.
@@ -214,6 +214,42 @@ import Footer from "../components/Footer.astro";
 </Layout>
 
 <script>
+  // Function to scroll to and focus on request-demo section
+  function scrollToRequestDemo() {
+    const demoSection = document.getElementById('request-demo');
+    if (demoSection) {
+      // Account for sticky header height
+      const headerHeight = 64; // md:h-16 = 64px
+      const elementPosition = demoSection.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Focus on first input field after scroll
+      setTimeout(() => {
+        const firstNameInput = document.getElementById('firstName') as HTMLInputElement;
+        if (firstNameInput) {
+          firstNameInput.focus();
+        }
+      }, 600);
+    }
+  }
+
+  // Handle hash navigation when page loads
+  if (window.location.hash === '#request-demo') {
+    setTimeout(scrollToRequestDemo, 100);
+  }
+
+  // Handle hash changes (e.g., when clicking link from same page)
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash === '#request-demo') {
+      scrollToRequestDemo();
+    }
+  });
+
   const form = document.getElementById('demo-request-form') as HTMLFormElement;
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const messageDiv = document.getElementById('form-message') as HTMLDivElement;
@@ -279,6 +315,136 @@ import Footer from "../components/Footer.astro";
         submitBtn.textContent = 'Get started';
       }
     });
+  }
+</script>
+
+<style>
+  /* About Hero Section Animations */
+  .about-hero-bg-image {
+    opacity: 0;
+    transform: scale(1.1);
+    animation: aboutHeroBgFadeIn 1.2s ease-out forwards;
+  }
+
+  @keyframes aboutHeroBgFadeIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .about-hero-title {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.3s;
+  }
+
+  .about-hero-description {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aboutHeroFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.5s;
+  }
+
+  @keyframes aboutHeroFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Request Demo Section Animations */
+  .demo-section-header {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: demoSectionFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .demo-form-container {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: demoFormFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  .demo-features-container {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: demoFeaturesFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.3s;
+  }
+
+  .demo-feature-item {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: demoFeatureItemFadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes demoSectionFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes demoFormFadeIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes demoFeaturesFadeIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes demoFeatureItemFadeIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Trigger animations when section comes into view */
+  #request-demo.animated .demo-section-header,
+  #request-demo.animated .demo-form-container,
+  #request-demo.animated .demo-features-container {
+    animation-play-state: running;
+  }
+
+  /* Initial state for demo section */
+  #request-demo {
+    opacity: 1;
+  }
+
+  /* Intersection Observer will add 'animated' class */
+  #request-demo:not(.animated) .demo-section-header,
+  #request-demo:not(.animated) .demo-form-container,
+  #request-demo:not(.animated) .demo-features-container,
+  #request-demo:not(.animated) .demo-feature-item {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  // Animate request demo section when it comes into view
+  const requestDemoSection = document.getElementById('request-demo');
+  if (requestDemoSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(requestDemoSection);
   }
 </script>
 
