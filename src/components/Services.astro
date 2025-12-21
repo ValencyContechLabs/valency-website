@@ -2,46 +2,101 @@
 const services = [
 	{
 		number: '01',
-		title: 'Civil Engineering & Infrastructure',
-		description: 'Comprehensive infrastructure solutions for modern cities and communities. We design and build sustainable infrastructure that supports economic growth and improves quality of life.',
-		image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+		title: 'Project Management',
+		description: 'End-to-end oversight to keep your project on track, efficient, and controlled.',
+		bullets: [
+			'Comprehensive project planning and scheduling',
+			'Cost control and budget tracking',
+			'Quality assurance and compliance management',
+			'Risk identification and mitigation',
+			'Real-time progress monitoring and reporting'
+		],
+		image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
 		isFeatured: true,
 	},
 	{
 		number: '02',
-		title: 'Interior Design',
-		description: 'Creating functional and aesthetically pleasing interior spaces that reflect your brand identity and enhance user experience through innovative design solutions.',
-		image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop',
+		title: 'Construction Management',
+		description: 'Expert coordination of all construction activities from start to finish.',
+		bullets: [
+			'On-site supervision and contractor coordination',
+			'Resource planning and workflow optimization',
+			'Safety management and regulatory compliance',
+			'Timeline management and progress control',
+			'Issue resolution and performance tracking'
+		],
+		image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop',
 	},
 	{
 		number: '03',
-		title: 'Structural Design',
-		description: 'Advanced structural engineering services ensuring safety, durability, and efficiency in every project from concept to completion.',
-		image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop',
+		title: 'General Contracting',
+		description: 'Single-point responsibility for seamless construction execution.',
+		bullets: [
+			'Management of subcontractors and suppliers',
+			'Material procurement and logistics coordination',
+			'Construction execution and site management',
+			'Schedule adherence and quality control',
+			'Health, safety, and compliance oversight'
+		],
+		image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
 	},
 	{
 		number: '04',
-		title: 'Planning & Project Management',
-		description: 'Strategic planning and comprehensive project management services to ensure timely delivery and uncompromised quality throughout the project lifecycle.',
-		image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
-	},
-	{
-		number: '05',
-		title: 'Mechanical, Electrical & Plumbing',
-		description: 'Integrated MEP solutions that optimize energy efficiency, reduce operational costs, and ensure reliable building systems for modern infrastructure.',
+		title: 'Consulting Services',
+		description: 'Strategic guidance to support informed decision-making.',
+		bullets: [
+			'Feasibility studies and project advisory',
+			'Risk, cost, and schedule analysis',
+			'Value engineering and optimization strategies',
+			'Procurement and contract strategy support',
+			'Independent project reviews and audits'
+		],
 		image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
 	},
 	{
+		number: '05',
+		title: 'Design–Build Services',
+		description: 'Integrated design and construction for faster, smarter delivery.',
+		bullets: [
+			'Single contract for design and construction',
+			'Improved coordination between design and execution teams',
+			'Reduced project timelines and cost efficiencies',
+			'Enhanced accountability and communication',
+			'Streamlined change management'
+		],
+		image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop',
+	},
+	{
 		number: '06',
-		title: 'Management & Site Supervision',
-		description: 'On-site supervision and management services ensuring quality control, safety compliance, and seamless coordination between all project stakeholders.',
-		image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop',
+		title: 'Pre-Construction Services',
+		description: 'Strong foundations for successful project delivery.',
+		bullets: [
+			'Project feasibility and scope definition',
+			'Site analysis and constructability reviews',
+			'Preliminary scheduling and planning',
+			'Cost forecasting and risk assessment',
+			'Procurement and phasing strategies'
+		],
+		image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
+	},
+	{
+		number: '07',
+		title: 'Project Estimation & Budgeting',
+		description: 'Accurate financial planning to control costs from day one.',
+		bullets: [
+			'Detailed cost estimation and BOQ preparation',
+			'Budget planning and cost benchmarking',
+			'Value engineering for cost optimization',
+			'Cash flow forecasting',
+			'Ongoing cost monitoring and reporting'
+		],
+		image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop',
 	},
 ];
 ---
 
 <section id="services" class="w-full bg-white pb-10 md:pb-16">
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+	<div class="container mx-auto px-2 sm:px-4 lg:px-6">
 		<div class="max-w-7xl mx-auto">
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
 				<div class="animate-fade-in-up">
@@ -62,8 +117,8 @@ const services = [
 			</div>
 
 			<!-- Services Horizontal Scroll Container -->
-			<div class="overflow-x-auto pb-4 scrollbar-hide" id="services-scroll" style="scroll-behavior: smooth; cursor: grab;">
-				<div class="flex gap-6 md:gap-8 px-2" style="min-width: max-content;">
+			<div class="overflow-x-auto pb-4 scrollbar-hide" id="services-scroll" style="scroll-behavior: smooth; cursor: grab; scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
+				<div class="flex gap-6 md:gap-8 px-2" style="min-width: max-content; width: max-content;">
 					{services.map((service, index) => (
 						<div 
 							class={`service-card relative flex-shrink-0 w-66 md:w-80 h-80 md:h-[400px] rounded-md overflow-hidden cursor-pointer animate-rotate-in`}
@@ -77,20 +132,20 @@ const services = [
 									class="service-card-image w-full h-full object-cover transition-transform duration-500"
 								/>
 							)}
-							<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-
-							<!-- Number Badge -->
-							<div class="absolute top-4 left-4 w-10 h-10 bg-white rounded-full flex items-center justify-center z-10">
-								<span class="text-blue-900 font-bold">{service.number}</span>
-							</div>
+							<div class="service-gradient absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 transition-opacity duration-300"></div>
 
 							<!-- Content Overlay -->
 							<div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
 								<h3 class="text-2xl md:text-3xl font-bold mb-3">{service.title}</h3>
+								<p class="service-description text-white/90 text-sm md:text-base leading-relaxed mb-2 opacity-0 max-h-0 overflow-hidden transition-all duration-300">
+									{service.description}
+								</p>
 								<div class="service-card-description overflow-hidden transition-all duration-300" style="max-height: 0; opacity: 0;">
-									<p class="text-white/90 text-sm md:text-base leading-relaxed mt-2">
-										{service.description}
-									</p>
+									<ul class="text-white/90 text-xs md:text-sm leading-relaxed mt-3 space-y-1.5 list-disc list-inside">
+										{service.bullets?.map((bullet) => (
+											<li>{bullet}</li>
+										))}
+									</ul>
 								</div>
 							</div>
 						</div>
@@ -123,14 +178,23 @@ const services = [
 	// Service card hover effects
 	document.querySelectorAll('.service-card').forEach((card) => {
 		const htmlCard = card as HTMLElement;
-		const description = card.querySelector('.service-card-description') as HTMLElement | null;
+		const gradient = card.querySelector('.service-gradient') as HTMLElement | null;
+		const mainDescription = card.querySelector('.service-description') as HTMLElement | null;
+		const bulletsDescription = card.querySelector('.service-card-description') as HTMLElement | null;
 		const image = card.querySelector('.service-card-image') as HTMLImageElement | null;
 
 		htmlCard.addEventListener('mouseenter', () => {
 			htmlCard.style.transform = 'translateY(-8px) rotate(1deg)';
-			if (description) {
-				description.style.maxHeight = '200px';
-				description.style.opacity = '1';
+			if (gradient) {
+				gradient.style.opacity = '1';
+			}
+			if (mainDescription) {
+				mainDescription.style.opacity = '1';
+				mainDescription.style.maxHeight = '100px';
+			}
+			if (bulletsDescription) {
+				bulletsDescription.style.maxHeight = '300px';
+				bulletsDescription.style.opacity = '1';
 			}
 			if (image) {
 				image.style.transform = 'scale(1.1)';
@@ -139,9 +203,16 @@ const services = [
 
 		htmlCard.addEventListener('mouseleave', () => {
 			htmlCard.style.transform = 'translateY(0) rotate(0deg)';
-			if (description) {
-				description.style.maxHeight = '0';
-				description.style.opacity = '0';
+			if (gradient) {
+				gradient.style.opacity = '0';
+			}
+			if (mainDescription) {
+				mainDescription.style.opacity = '0';
+				mainDescription.style.maxHeight = '0';
+			}
+			if (bulletsDescription) {
+				bulletsDescription.style.maxHeight = '0';
+				bulletsDescription.style.opacity = '0';
 			}
 			if (image) {
 				image.style.transform = 'scale(1)';
@@ -182,5 +253,33 @@ const services = [
 
 	.service-card {
 		transition: transform 1s ease-out;
+	}
+
+	.scrollbar-hide {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		height: 8px;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar-thumb {
+		background: rgba(156, 163, 175, 0.3);
+		border-radius: 4px;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.scrollbar-hide:hover::-webkit-scrollbar-thumb {
+		opacity: 1;
+	}
+
+	.scrollbar-hide:hover {
+		scrollbar-color: rgba(156, 163, 175, 0.6) transparent;
 	}
 </style>

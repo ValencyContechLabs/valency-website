@@ -1,40 +1,49 @@
 ---
-const stats = [
-	{ value: '12+', label: 'Years of accumulated experience' },
-	{ value: '50+', label: 'Partners and collaborators' },
-	{ value: '12+', label: "Industries we've served" },
-	{ value: '140+', label: 'Successfully completed projects' },
-	{ value: '400k+', label: 'Square meters of designed spaces' },
+const features = [
+	{
+		title: 'One-Click Billing',
+		description: 'Automates the entire billing workflow, minimizing manual intervention, reducing errors, and significantly accelerating payment cycles.',
+	},
+	{
+		title: 'Real-Time Project Tracking',
+		description: 'Provides live visibility into project progress, delays, milestones, and detailed cost breakdowns—keeping all stakeholders informed at every stage.',
+	},
+	{
+		title: 'Productivity Insights',
+		description: 'Activity-based tracking of labor, materials, and resources helps identify inefficiencies, optimize utilization, and ensure maximum on-site productivity.',
+	},
+	{
+		title: 'Projections & Estimations',
+		description: 'Delivers accurate forecasts for timelines, costs, and potential risks, enabling proactive decision-making and better control over project outcomes.',
+	},
 ];
 ---
 
 <section id="statistics" class="w-full bg-white pb-10 md:pb-16">
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="max-w-4xl mx-auto">
+	<div class="container mx-auto px-2 sm:px-4 lg:px-6">
+		<div class="max-w-7xl mx-auto">
+			<!-- Header Section -->
 			<div class="text-center mb-12 animate-fade-in-up">
-				<p class="text-sm md:text-base text-gray-500 uppercase tracking-wide mb-2">
-					Numbers That Tell the Story
-				</p>
 				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-					Building Success on a Foundation of Trust
+					What Valency Delivers
 				</h2>
-				<p class="text-gray-600 max-w-2xl mx-auto">
-					Our track record speaks for itself. We've built lasting partnerships and delivered exceptional results across diverse industries and project scales.
+				<p class="text-gray-600 text-lg max-w-3xl mx-auto">
+					Valency empowers construction teams with intelligent tools designed to simplify complexity, improve visibility, and drive cost-efficient project execution.
 				</p>
 			</div>
 
-			<!-- Statistics Grid -->
-			<div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6">
-				{stats.map((stat, index) => (
+			<!-- Features Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
+				{features.map((feature, index) => (
 					<div 
-						class="text-center animate-scale-in"
+						class="statistics-card bg-gray-50 rounded-xl p-6 border-2 border-transparent animate-scale-in"
 						style={`animation-delay: ${index * 0.1}s;`}
 					>
-						<div class="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-							{stat.value}
-						</div>
-						<p class="text-sm md:text-base text-gray-600">
-							{stat.label}
+						<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">
+							{feature.title}
+						</h3>
+						<p class="text-gray-600 text-base leading-relaxed">
+							{feature.description}
 						</p>
 					</div>
 				))}
@@ -77,5 +86,20 @@ const stats = [
 	#statistics.visible .animate-scale-in {
 		opacity: 1;
 		transform: translateY(0) scale(1);
+	}
+
+	.statistics-card {
+		transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		            box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		            border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		            transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		cursor: pointer;
+	}
+
+	.statistics-card:hover {
+		background-color: #eff6ff;
+		box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+		border-color: #bfdbfe;
+		transform: translateY(-4px);
 	}
 </style>

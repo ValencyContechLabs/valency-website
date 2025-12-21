@@ -1,0 +1,284 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <Header />
+  <main class="bg-white">
+    <!-- Hero Section -->
+    <section id="about-hero" class="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden mb-16">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop" 
+          class="w-full h-full object-cover"
+          alt="About Valency"
+        />
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 container mx-auto px-2 sm:px-4 lg:px-6 h-full flex items-center min-h-[500px] md:min-h-[600px]">
+        <div class="max-w-4xl text-white">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            About Us
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+            At Valency, we combine deep expertise in construction management and cutting-edge technology to deliver exceptional results.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="w-full bg-white pb-10 md:pb-16">
+      <div class="container mx-auto px-2 sm:px-4 lg:px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 text-lg leading-relaxed mb-6">
+              With over a decade of experience in the industry, our team blends civil engineering knowledge with innovative software solutions to ensure that every project is executed to the highest standards. Whether you're undertaking a residential, commercial, or industrial construction project, we offer integrated solutions that streamline the entire process, boost efficiency, and enhance overall project outcomes.
+            </p>
+            <p class="text-gray-700 text-lg leading-relaxed">
+              Our approach integrates proven construction management practices with the latest technological tools, empowering us to address complex challenges and achieve successful project completion. From initial planning to final handover, our team works closely with you to turn your vision into reality, ensuring full control over timelines, costs, and quality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request a Demo Section -->
+    <section id="request-demo" class="w-full bg-gray-50 py-16 md:py-24">
+      <div class="container mx-auto px-2 sm:px-4 lg:px-6">
+        <div class="max-w-7xl mx-auto">
+          <!-- Header -->
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Request a Demo
+            </h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+              Talk to a Valency expert about your requirements, technology stack, and timeline. Complete the form and we'll make sure to reach out.
+            </p>
+          </div>
+
+          <!-- Two Column Layout -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <!-- Left: Form -->
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+              <form id="demo-request-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                    <input 
+                      type="text" 
+                      id="firstName" 
+                      name="firstName"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      placeholder="Enter your first name"
+                    />
+                  </div>
+                  <div>
+                    <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                    <input 
+                      type="text" 
+                      id="lastName" 
+                      name="lastName"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      placeholder="Enter your last name"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Work Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="name@company.com"
+                  />
+                </div>
+
+                <div>
+                  <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company</label>
+                  <input 
+                    type="text" 
+                    id="company" 
+                    name="company"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter your company name"
+                  />
+                </div>
+
+                <div>
+                  <label for="hearAbout" class="block text-sm font-medium text-gray-700 mb-2">How did you hear about us?</label>
+                  <textarea 
+                    id="hearAbout" 
+                    name="hearAbout"
+                    rows="3"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter your message"
+                  ></textarea>
+                </div>
+
+                <div>
+                  <label for="projectDetails" class="block text-sm font-medium text-gray-700 mb-2">Project Details or Questions</label>
+                  <textarea 
+                    id="projectDetails" 
+                    name="projectDetails"
+                    rows="4"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Share your requirements"
+                  ></textarea>
+                </div>
+
+                <div class="flex items-start">
+                  <input 
+                    type="checkbox" 
+                    id="newsletter" 
+                    name="newsletter"
+                    class="mt-1 mr-3 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    checked
+                  />
+                  <label for="newsletter" class="text-sm text-gray-700">
+                    Yes, I'd like to receive news and updates by email.
+                  </label>
+                </div>
+
+                <p class="text-sm text-gray-600">
+                  By submitting this form you agree with our <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>.
+                </p>
+
+                <button 
+                  type="submit"
+                  id="submit-btn"
+                  class="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Get started
+                </button>
+              </form>
+              <div id="form-message" class="mt-4 hidden"></div>
+            </div>
+
+            <!-- Right: Features -->
+            <div class="space-y-6">
+              <ul class="space-y-6">
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
+                  <p class="text-gray-700 text-lg leading-relaxed">
+                    <strong>Streamline Billing</strong> through one-click generation of accurate invoices directly from daily data.
+                  </p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
+                  <p class="text-gray-700 text-lg leading-relaxed">
+                    <strong>Provide Real-Time Project Insights</strong> for precise decision-making and rapid issue resolution.
+                  </p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
+                  <p class="text-gray-700 text-lg leading-relaxed">
+                    <strong>Offer Automated Projections</strong> to anticipate project timelines, costs, and resource requirements.
+                  </p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
+                  <p class="text-gray-700 text-lg leading-relaxed">
+                    <strong>Optimize Workforce and Productivity Tracking</strong> through detailed, activity-wise reports.
+                  </p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
+                  <p class="text-gray-700 text-lg leading-relaxed">
+                    <strong>Support Data-Driven Decisions</strong> with easy access to granular insights into project progress and costs.
+                  </p>
+                </li>
+              </ul>
+
+              <!-- Our Clients -->
+              <!-- <div class="mt-12">
+                <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-6">OUR CLIENTS</h4>
+                <div class="flex flex-wrap items-center gap-6 opacity-60">
+                  <div class="text-2xl font-bold text-gray-700">Greenwood</div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById('demo-request-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const messageDiv = document.getElementById('form-message') as HTMLDivElement;
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Basic validation
+      const emailInput = form.querySelector('#email') as HTMLInputElement;
+      const firstNameInput = form.querySelector('#firstName') as HTMLInputElement;
+      
+      if (!firstNameInput?.value.trim()) {
+        messageDiv.className = 'mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800';
+        messageDiv.textContent = 'Please enter your first name.';
+        messageDiv.classList.remove('hidden');
+        return;
+      }
+      
+      if (!emailInput?.value.trim() || !emailInput.value.includes('@')) {
+        messageDiv.className = 'mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800';
+        messageDiv.textContent = 'Please enter a valid email address.';
+        messageDiv.classList.remove('hidden');
+        return;
+      }
+      
+      // Disable submit button
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      messageDiv.classList.add('hidden');
+
+      try {
+        const formData = new FormData(form);
+        
+        const response = await fetch('/api/request-demo', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        if (result.success) {
+          messageDiv.className = 'mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800';
+          messageDiv.textContent = result.message || 'Thank you! We will reach out to you soon.';
+          messageDiv.classList.remove('hidden');
+          form.reset();
+        } else {
+          messageDiv.className = 'mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800';
+          messageDiv.textContent = result.message || 'Something went wrong. Please try again.';
+          messageDiv.classList.remove('hidden');
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        messageDiv.className = 'mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800';
+        messageDiv.textContent = `Error: ${error instanceof Error ? error.message : 'Network error. Please check your connection and try again.'}`;
+        messageDiv.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Get started';
+      }
+    });
+  }
+</script>
+

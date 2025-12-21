@@ -1,35 +1,120 @@
 ---
+import analytics1 from '../assets/analytics/WhatsApp Image 2025-12-20 at 12.09.07.jpeg';
+import analytics2 from '../assets/analytics/WhatsApp Image 2025-12-20 at 12.09.32.jpeg';
+import analytics3 from '../assets/analytics/WhatsApp Image 2025-12-20 at 12.09.52.jpeg';
+import analytics4 from '../assets/analytics/WhatsApp Image 2025-12-20 at 12.10.24.jpeg';
+
+const analyticsImages = [analytics1, analytics2, analytics3, analytics4];
 ---
 
-<section id="analytics" class="w-full bg-white pb-10 md:pb-16">
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<section id="analytics" class="w-full bg-white pb-10 md:pb-16 my-10">
+	<div class="container mx-auto px-2 sm:px-4 lg:px-6">
 		<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
 			Analytics
 		</h2>
 		
-		<!-- Horizontal Scrollable Image Container -->
-		<div class="overflow-x-auto pb-4 scrollbar-hide">
-			<div class="flex justify-center md:justify-start px-2" style="scroll-behavior: smooth;">
-				<img 
-					src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=917&h=524&fit=crop" 
-					alt="Analytics Dashboard" 
-					class="rounded-xl shadow-lg flex-shrink-0 w-full max-w-full md:max-w-none"
-					width="917"
-					height="524"
-					style="min-width: min(917px, 100%);"
-				/>
+		<!-- Auto-scrolling Image Carousel -->
+		<div class="relative overflow-hidden rounded-xl shadow-lg">
+			<div id="analytics-carousel" class="flex transition-transform duration-500 ease-in-out">
+				{analyticsImages.map((image, index) => (
+					<img 
+						src={image.src}
+						alt={`Analytics Dashboard ${index + 1}`}
+						class="w-full h-auto flex-shrink-0"
+						style={`display: ${index === 0 ? 'block' : 'none'};`}
+						data-index={index}
+					/>
+				))}
+			</div>
+			
+			<!-- Navigation Dots -->
+			<div class="flex justify-center gap-2 mt-4">
+				{analyticsImages.map((_, index) => (
+					<button
+						class="analytics-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300"
+						data-index={index}
+						aria-label={`Go to slide ${index + 1}`}
+					></button>
+				))}
 			</div>
 		</div>
 	</div>
 </section>
 
-<style>
-	.scrollbar-hide {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
+<script>
+	let currentIndex = 0;
+	const images = document.querySelectorAll('#analytics-carousel img');
+	const dots = document.querySelectorAll('.analytics-dot');
+	const totalImages = images.length;
+	let autoScrollInterval: number | null = null;
+
+	function showImage(index: number) {
+		// Hide all images
+		images.forEach((img) => {
+			(img as HTMLElement).style.display = 'none';
+		});
+		
+		// Show current image
+		(images[index] as HTMLElement).style.display = 'block';
+		
+		// Update dots
+		dots.forEach((dot, i) => {
+			if (i === index) {
+				dot.classList.add('bg-blue-600', 'w-8');
+				dot.classList.remove('bg-gray-300', 'w-2');
+			} else {
+				dot.classList.remove('bg-blue-600', 'w-8');
+				dot.classList.add('bg-gray-300', 'w-2');
+			}
+		});
 	}
-	.scrollbar-hide::-webkit-scrollbar {
-		display: none;
+
+	function nextImage() {
+		currentIndex = (currentIndex + 1) % totalImages;
+		showImage(currentIndex);
+	}
+
+	function startAutoScroll() {
+		autoScrollInterval = window.setInterval(nextImage, 5000);
+	}
+
+	function stopAutoScroll() {
+		if (autoScrollInterval) {
+			window.clearInterval(autoScrollInterval);
+			autoScrollInterval = null;
+		}
+	}
+
+	// Initialize
+	showImage(0);
+	startAutoScroll();
+
+	// Add click handlers to dots
+	dots.forEach((dot, index) => {
+		dot.addEventListener('click', () => {
+			currentIndex = index;
+			showImage(currentIndex);
+			stopAutoScroll();
+			startAutoScroll();
+		});
+	});
+
+	// Pause on hover
+	const carousel = document.getElementById('analytics-carousel');
+	if (carousel) {
+		carousel.parentElement?.addEventListener('mouseenter', stopAutoScroll);
+		carousel.parentElement?.addEventListener('mouseleave', startAutoScroll);
+	}
+</script>
+
+<style>
+	.analytics-dot {
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.analytics-dot:hover {
+		background-color: rgb(96, 165, 250);
 	}
 </style>
 

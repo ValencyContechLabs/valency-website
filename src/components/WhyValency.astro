@@ -1,64 +1,118 @@
 ---
 const features = [
 	{
-		title: 'On-Time Delivery',
-		description: 'We value your time and ensure that every project is completed on schedule with no compromise on quality.',
+		title: 'Expert Team with Diverse Expertise',
+		description: 'Highly skilled professionals with over 12 years of experience in civil engineering and software development, ensuring structural integrity and innovative project management tools.',
 	},
 	{
-		title: 'Tailored Solutions',
-		description: 'We understand your needs and deliver engineering plans and designs that precisely match your requirements.',
+		title: 'Cutting-Edge Technology',
+		description: 'Latest software tools and technologies including our One-Click RA Bills feature that automates billing, saving time and reducing administrative burden.',
 	},
 	{
-		title: 'Diverse Expertise',
-		description: 'Our team brings together experienced engineers and designers with deep technical knowledge and forward-thinking skills.',
+		title: 'One-Click RA Bills',
+		description: 'Seamless, instant generation of RA Bills with a single click, ensuring accurate billing, improved financial transparency, and efficient cash flow management.',
 	},
 	{
-		title: 'Continuous Quality Assurance',
-		description: 'We oversee every project stage to guarantee that the final outcome aligns with the vision and specifications.',
+		title: 'Every Second Project Monitoring',
+		description: 'Real-time project monitoring with live updates on progress, timelines, and budgets, allowing immediate issue identification and resolution for full project visibility.',
+	},
+	{
+		title: 'Commitment to Quality & Safety',
+		description: 'Strict adherence to safety protocols and industry standards, ensuring every project aspect meets or exceeds expectations with the highest quality workmanship.',
 	},
 ];
 
-const imageUrl = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop';
-const overlayText = 'In a world that demands precision, commitment, and innovative engineering, Valency delivers added value to every project through a holistic approach focused on details and long-term success.';
+const mainImageUrl = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop';
+const overlayCards = [
+	{
+		image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop',
+		title: 'Team Collaboration',
+		position: 'left-center',
+	},
+	{
+		image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=300&fit=crop',
+		title: 'Project Planning',
+		position: 'top-right',
+	},
+	{
+		image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop',
+		title: 'Site Management',
+		position: 'bottom-center',
+	},
+];
 ---
 
 <section id="why-valency" class="w-full bg-white md:pb-16">
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+	<div class="container mx-auto px-2 sm:px-4 lg:px-6">
 		<div class="max-w-7xl mx-auto">
 			<!-- Section Title -->
 			<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center animate-fade-in-up">
-				Why Valency?
+				What Makes Us Unique
 			</h2>
 			
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-				<!-- Left: Image with Overlay -->
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-25 items-start">
+				<!-- Left: Main Image with Overlay Cards -->
 				<div 
-					class="why-valency-image relative h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-xl"
-					style="opacity: 0; transition: opacity 0.8s ease-out 0.2s;"
+					class="why-valency-image relative w-full rounded-xl overflow-visible shadow-xl mt-12 md:mt-16"
+					style="opacity: 0; transition: opacity 0.8s ease-out 0.2s; min-height: 600px;"
 				>
+					<!-- Main Building Image -->
 					<img
-						src={imageUrl}
-						alt="Valency Team"
-						class="w-full h-full object-cover"
+						src={mainImageUrl}
+						alt="Modern Construction"
+						class="w-full h-full object-cover absolute inset-0 rounded-xl"
+						style="height: 100%; min-height: 600px; z-index: 1;"
 					/>
-					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-					<div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-						<p class="text-lg md:text-xl leading-relaxed">
-							{overlayText}
-						</p>
-					</div>
+					<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent rounded-xl z-10"></div>
+					
+					<!-- Overlay Cards - Positioned individually (30% outside, 70% inside) -->
+					{overlayCards.map((card, index) => {
+						let positionClasses = '';
+						if (card.position === 'left-center') {
+							// 30% outside (left), 70% inside
+							positionClasses = 'left-0 top-1/2 -translate-y-1/2';
+						} else if (card.position === 'top-right') {
+							// Extend outside at the top
+							positionClasses = 'right-0 top-0';
+						} else if (card.position === 'bottom-center') {
+							// 50% outside (bottom), 50% inside
+							positionClasses = 'left-1/2 bottom-0 -translate-x-1/2';
+						}
+						
+						return (
+							<div 
+								class={`overlay-card absolute ${positionClasses} bg-white rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 w-[200px] md:w-[240px] z-20`}
+								style={`
+									opacity: 0; 
+									transition: opacity 0.6s ease-out ${0.3 + index * 0.2}s, transform 0.6s ease-out ${0.3 + index * 0.2}s;
+									${card.position === 'left-center' ? 'transform: translateX(-30%) translateY(-50%);' : ''}
+									${card.position === 'top-right' ? 'transform: translateX(-20%) translateY(-30%);' : ''}
+									${card.position === 'bottom-center' ? 'transform: translateX(-50%) translateY(50%);' : ''}
+								`}
+							>
+								<img
+									src={card.image}
+									alt={card.title}
+									class="w-full h-32 md:h-40 object-cover"
+								/>
+								<div class="p-3 bg-white">
+									<p class="text-xs md:text-sm font-semibold text-gray-900">{card.title}</p>
+								</div>
+							</div>
+						);
+					})}
 				</div>
 
 				<!-- Right: Features List -->
-				<div class="space-y-6">
+				<div class="space-y-6 pl-4 md:pl-6">
 					{features.map((feature, index) => (
 						<div 
-							class={`why-valency-item group flex gap-4 p-6 rounded-lg transition-all duration-300 cursor-pointer bg-gray-50 shadow-sm hover:shadow-xl`}
+							class={`why-valency-item group flex gap-3 p-4 rounded-lg cursor-pointer bg-gray-50 shadow-sm border-2 border-transparent`}
 							style={`opacity: 0; transform: translateX(50px) translateY(20px) scale(0.9); transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); `}
 						>
-							<div class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300 bg-blue-900">
+							<div class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-300 bg-blue-900">
 								<svg
-									class="w-6 h-6 text-white"
+									class="w-4 h-4 text-white"
 									fill="none"
 									stroke="currentColor"
 									viewBox="0 0 24 24"
@@ -72,10 +126,10 @@ const overlayText = 'In a world that demands precision, commitment, and innovati
 								</svg>
 							</div>
 							<div>
-								<h3 class="text-xl md:text-2xl font-bold mb-2 text-gray-900 transition-colors duration-300">
+								<h3 class="text-base md:text-lg font-bold mb-1.5 text-gray-900 transition-colors duration-300">
 									{feature.title}
 								</h3>
-								<p class="leading-relaxed text-gray-600 transition-colors duration-300">
+								<p class="text-sm md:text-base leading-relaxed text-gray-600 transition-colors duration-300">
 									{feature.description}
 								</p>
 							</div>
@@ -102,6 +156,16 @@ const overlayText = 'In a world that demands precision, commitment, and innovati
 							image.style.opacity = '1';
 						}
 						
+						// Animate overlay cards
+						const overlayCards = entry.target.querySelectorAll('.overlay-card');
+						overlayCards.forEach((card, index) => {
+							const htmlCard = card as HTMLElement;
+							setTimeout(() => {
+								htmlCard.style.opacity = '1';
+								// Keep the existing transform from inline styles
+							}, 500 + index * 100);
+						});
+						
 						// Animate items with smooth animation
 						const items = entry.target.querySelectorAll('.why-valency-item');
 						items.forEach((item) => {
@@ -127,17 +191,6 @@ const overlayText = 'In a world that demands precision, commitment, and innovati
 		observer.observe(whyValencySection);
 	}
 
-	// Hover effects for feature items
-	document.querySelectorAll('.why-valency-item').forEach((item) => {
-		const htmlItem = item as HTMLElement;
-		htmlItem.addEventListener('mouseenter', () => {
-			htmlItem.style.transform = 'scale(1.05) translateY(-5px)';
-		});
-
-		htmlItem.addEventListener('mouseleave', () => {
-			htmlItem.style.transform = 'scale(1) translateY(0)';
-		});
-	});
 </script>
 
 <style>
@@ -153,7 +206,17 @@ const overlayText = 'In a world that demands precision, commitment, and innovati
 	}
 
 	.why-valency-item {
-		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		            box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		            background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		            border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.why-valency-item:hover {
+		background-color: #eff6ff;
+		box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+		border-color: #bfdbfe;
+		transform: translateY(-4px) scale(1.02);
 	}
 
 </style>
