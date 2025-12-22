@@ -19,15 +19,25 @@ const features = [
 ];
 ---
 
-<section id="statistics" class="w-full bg-white pb-10 md:pb-16">
-	<div class="container mx-auto px-2 sm:px-4 lg:px-6">
+<section id="statistics" class="relative w-full py-10 md:py-16 overflow-hidden">
+	<!-- Background Image -->
+	<div class="absolute inset-0 statistics-bg-container">
+		<img 
+			src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1920&h=1080&fit=crop" 
+			class="w-full h-full object-cover statistics-bg-image"
+			alt="What Valency Delivers Background"
+		/>
+		<div class="absolute inset-0 bg-black/50"></div>
+	</div>
+
+	<div class="relative z-10 container mx-auto px-2 sm:px-4 lg:px-6">
 		<div class="max-w-7xl mx-auto">
 			<!-- Header Section -->
 			<div class="text-center mb-12 animate-fade-in-up">
-				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
 					What Valency Delivers
 				</h2>
-				<p class="text-gray-600 text-lg max-w-3xl mx-auto">
+				<p class="text-white/90 text-lg max-w-3xl mx-auto">
 					Valency empowers construction teams with intelligent tools designed to simplify complexity, improve visibility, and drive cost-efficient project execution.
 				</p>
 			</div>
@@ -36,7 +46,7 @@ const features = [
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
 				{features.map((feature, index) => (
 					<div 
-						class="statistics-card bg-gray-50 rounded-xl p-6 border-2 border-transparent animate-scale-in"
+						class="statistics-card bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/20 shadow-lg animate-scale-in"
 						style={`animation-delay: ${index * 0.1}s;`}
 					>
 						<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">
@@ -97,9 +107,23 @@ const features = [
 	}
 
 	.statistics-card:hover {
-		background-color: #eff6ff;
-		box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
-		border-color: #bfdbfe;
+		background-color: rgba(255, 255, 255, 1);
+		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+		border-color: rgba(255, 255, 255, 0.4);
 		transform: translateY(-4px);
+	}
+
+	/* Statistics Background Image */
+	.statistics-bg-image {
+		opacity: 0;
+		transform: scale(1.1);
+		animation: statisticsBgFadeIn 2s ease-out forwards;
+	}
+
+	@keyframes statisticsBgFadeIn {
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 </style>

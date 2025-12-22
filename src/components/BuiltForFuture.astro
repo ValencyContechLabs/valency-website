@@ -1,15 +1,25 @@
 ---
 ---
 
-<section id="built-for-future" class="w-full bg-white pb-10 md:pb-16">
-	<div class="container mx-auto px-2 sm:px-4 lg:px-6">
+<section id="built-for-future" class="relative w-full py-10 md:py-16 mb-10 overflow-hidden">
+	<!-- Background Image -->
+	<div class="absolute inset-0 built-future-bg-container">
+		<img 
+			src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&h=1080&fit=crop" 
+			class="w-full h-full object-cover built-future-bg-image"
+			alt="Cost Optimization Background"
+		/>
+		<div class="absolute inset-0 bg-black/60"></div>
+	</div>
+
+	<div class="relative z-10 container mx-auto px-2 sm:px-4 lg:px-6 py-8 md:py-12">
 		<div class="max-w-7xl mx-auto">
 			<!-- Header Section -->
 			<div class="text-center mb-12 built-future-header">
-				<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 built-future-title">
+				<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 built-future-title">
 					Cost Optimization & Waste Reduction
 				</h2>
-				<p class="text-gray-600 text-lg max-w-3xl mx-auto built-future-subtitle">
+				<p class="text-white/90 text-lg max-w-3xl mx-auto built-future-subtitle">
 					Our structured construction management approach focuses on eliminating inefficiencies and maximizing value across every phase of the project.
 				</p>
 			</div>
@@ -17,7 +27,7 @@
 			<!-- Three Column Layout -->
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 built-future-content">
 				<!-- Card 1: Current Industry Waste -->
-				<div class="cost-card bg-gray-50 rounded-xl p-6 md:p-8 border-2 border-transparent">
+				<div class="cost-card bg-white/95 backdrop-blur-sm rounded-xl p-6 md:p-8 border-2 border-white/20 shadow-lg">
 					<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
 						Current Industry Waste
 					</h3>
@@ -27,7 +37,7 @@
 				</div>
 
 				<!-- Card 2: Future Savings with Advanced Controls -->
-				<div class="cost-card bg-gray-50 rounded-xl p-6 md:p-8 border-2 border-transparent">
+				<div class="cost-card bg-white/95 backdrop-blur-sm rounded-xl p-6 md:p-8 border-2 border-white/20 shadow-lg">
 					<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
 						Future Savings with Advanced Controls
 					</h3>
@@ -37,7 +47,7 @@
 				</div>
 
 				<!-- Card 3: Total Project Cost Savings -->
-				<div class="cost-card bg-gray-50 rounded-xl p-6 md:p-8 border-2 border-transparent">
+				<div class="cost-card bg-white/95 backdrop-blur-sm rounded-xl p-6 md:p-8 border-2 border-white/20 shadow-lg">
 					<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
 						Total Project Cost Savings
 					</h3>
@@ -133,10 +143,24 @@
 	}
 
 	.cost-card:hover {
-		background-color: #eff6ff;
-		box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
-		border-color: #bfdbfe;
+		background-color: rgba(255, 255, 255, 1);
+		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+		border-color: rgba(255, 255, 255, 0.4);
 		transform: translateY(-4px);
+	}
+
+	/* Built For Future Background Image */
+	.built-future-bg-image {
+		opacity: 0;
+		transform: scale(1.1);
+		animation: builtFutureBgFadeIn 2s ease-out forwards;
+	}
+
+	@keyframes builtFutureBgFadeIn {
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 
 </style>

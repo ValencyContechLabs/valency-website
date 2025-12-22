@@ -122,7 +122,7 @@ const services = [
 					{services.map((service, index) => (
 						<div 
 							class={`service-card relative flex-shrink-0 w-66 md:w-80 h-80 md:h-[400px] rounded-md overflow-hidden cursor-pointer animate-rotate-in`}
-							// style={`animation-delay: ${index * 0.2}s;`}
+							style={`animation-delay: ${index * 0.15}s; transition-delay: ${index * 0.15}s;`}
 							data-service-index={index}
 						>
 							{service.image && (
@@ -242,13 +242,13 @@ const services = [
 
 	.animate-rotate-in {
 		opacity: 0;
-		transform: rotate(-10deg) scale(0.9);
-		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+		transform: translateY(50px) scale(0.8);
+		transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 	}
 
 	#services.visible .animate-rotate-in {
 		opacity: 1;
-		transform: rotate(0deg) scale(1);
+		transform: translateY(0) scale(1);
 	}
 
 	.service-card {

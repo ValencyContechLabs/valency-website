@@ -49,15 +49,25 @@ import Footer from "../components/Footer.astro";
     </section>
 
     <!-- Request a Demo Section -->
-    <section id="request-demo" class="w-full bg-gray-50 py-16 md:py-24">
-      <div class="container mx-auto px-2 sm:px-4 lg:px-6">
+    <section id="request-demo" class="relative w-full py-16 md:py-24 overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 demo-bg-container">
+        <img 
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1080&fit=crop" 
+          class="w-full h-full object-cover demo-bg-image"
+          alt="Request Demo Background"
+        />
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      <div class="relative z-10 container mx-auto px-2 sm:px-4 lg:px-6">
         <div class="max-w-7xl mx-auto">
           <!-- Header -->
           <div class="text-center mb-12 demo-section-header">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
               Request a Demo
             </h2>
-            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p class="text-white/90 text-lg max-w-2xl mx-auto">
               Talk to a Valency expert about your requirements, technology stack, and timeline. Complete the form and we'll make sure to reach out.
             </p>
           </div>
@@ -65,7 +75,7 @@ import Footer from "../components/Footer.astro";
           <!-- Two Column Layout -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <!-- Left: Form -->
-            <div class="bg-white rounded-xl p-8 shadow-lg demo-form-container">
+            <div class="bg-white/95 backdrop-blur-sm rounded-xl p-8 shadow-lg demo-form-container">
               <form id="demo-request-form" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -166,32 +176,32 @@ import Footer from "../components/Footer.astro";
             <div class="space-y-6 demo-features-container">
               <ul class="space-y-6">
                 <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.2s;">
-                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                  <p class="text-gray-700 text-lg leading-relaxed">
+                  <span class="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-2"></span>
+                  <p class="text-white text-lg leading-relaxed">
                     <strong>Streamline Billing</strong> through one-click generation of accurate invoices directly from daily data.
                   </p>
                 </li>
                 <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.3s;">
-                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                  <p class="text-gray-700 text-lg leading-relaxed">
+                  <span class="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-2"></span>
+                  <p class="text-white text-lg leading-relaxed">
                     <strong>Provide Real-Time Project Insights</strong> for precise decision-making and rapid issue resolution.
                   </p>
                 </li>
                 <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.4s;">
-                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                  <p class="text-gray-700 text-lg leading-relaxed">
+                  <span class="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-2"></span>
+                  <p class="text-white text-lg leading-relaxed">
                     <strong>Offer Automated Projections</strong> to anticipate project timelines, costs, and resource requirements.
                   </p>
                 </li>
                 <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.5s;">
-                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                  <p class="text-gray-700 text-lg leading-relaxed">
+                  <span class="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-2"></span>
+                  <p class="text-white text-lg leading-relaxed">
                     <strong>Optimize Workforce and Productivity Tracking</strong> through detailed, activity-wise reports.
                   </p>
                 </li>
                 <li class="flex items-start gap-3 demo-feature-item" style="animation-delay: 0.6s;">
-                  <span class="flex-shrink-0 w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
-                  <p class="text-gray-700 text-lg leading-relaxed">
+                  <span class="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-2"></span>
+                  <p class="text-white text-lg leading-relaxed">
                     <strong>Support Data-Driven Decisions</strong> with easy access to granular insights into project progress and costs.
                   </p>
                 </li>
@@ -359,6 +369,20 @@ import Footer from "../components/Footer.astro";
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Request Demo Background Image */
+  .demo-bg-image {
+    opacity: 0;
+    transform: scale(1.1);
+    animation: demoBgFadeIn 2s ease-out forwards;
+  }
+
+  @keyframes demoBgFadeIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 
