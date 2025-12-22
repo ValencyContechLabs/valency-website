@@ -1,230 +1,273 @@
 ---
 const heroImages = [
-	'https://images.unsplash.com/photo-1514202995454-542f30f69cc2?q=80&w=1648&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	'https://images.unsplash.com/photo-1583024011792-b165975b52f5?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	
-	'https://images.unsplash.com/photo-1627660080110-20045fd3875d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-	'https://images.unsplash.com/photo-1656329890168-a8f3888e9d71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  "https://images.unsplash.com/photo-1583024011792-b165975b52f5?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1627660080110-20045fd3875d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1656329890168-a8f3888e9d71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1634250878836-0d4618ae41d3?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1652318521989-31b473041f2b?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 ];
 ---
 
-<section id="home" class="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden mb-16 -mt-20 md:-mt-24">
-	<!-- Background Image with Overlay - extends to top -->
-	<div class="absolute hero-bg-container hero-bg-extended">
-		{heroImages.map((imageSrc, index) => (
-			<img 
-				src={imageSrc}
-				class={`w-full h-full object-cover hero-bg-image ${index === 0 ? 'hero-bg-active' : 'hero-bg-inactive'}`}
-				data-image-index={index}
-				alt={`Hero background ${index + 1}`}
-			/>
-		))}
-		<div class="absolute inset-0 bg-black/50"/>
-	</div>
+<section
+  id="home"
+  class="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden mb-16 -mt-20 md:-mt-24"
+>
+  <!-- Background Image with Overlay - extends to top -->
+  <div class="absolute hero-bg-container hero-bg-extended">
+    {
+      heroImages.map((imageSrc, index) => (
+        <img
+          src={imageSrc}
+          class={`w-full h-full object-cover hero-bg-image ${index === 0 ? "hero-bg-active" : "hero-bg-inactive"}`}
+          data-image-index={index}
+          alt={`Hero background ${index + 1}`}
+        />
+      ))
+    }
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
 
-	<!-- Content - starts below header -->
-	<div class="relative z-10 container mx-auto px-4 sm:px-4 lg:px-6 h-full flex pb-32 md:pb-0 pt-24 md:pt-[150px]">
-		<div class="max-w-xl w-full text-white">
-			<div class="space-y-3 md:space-y-3">
-				<!-- Main Title Card -->
-				<div class="hero-title-card hero-card-entrance rounded-lg p-4 md:p-3" style="animation-delay: 0.2s;">
-					<h1 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-						Revolutionising <span class="text-blue-800">Construction</span> Planning
-					</h1>
-				</div>
+  <!-- Content - starts below header -->
+  <div
+    class="relative z-10 container mx-auto px-4 sm:px-4 lg:px-6 h-full flex pb-32 md:pb-0 pt-24 md:pt-[150px]"
+  >
+    <div class="max-w-xl w-full text-white">
+      <div class="space-y-3 md:space-y-3">
+        <!-- Main Title Card -->
+        <div
+          class="hero-title-card hero-card-entrance rounded-lg p-4 md:p-3"
+          style="animation-delay: 0.2s;"
+        >
+          <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+            Revolutionising <span class="text-blue-800">Construction</span> Planning
+          </h1>
+        </div>
 
-				<!-- Point 1 -->
-				<div class="hero-card hero-card-entrance bg-black/10 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20" style="animation-delay: 0.4s;">
-					<h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
-						Clarity Through Complete Transparency
-					</h3>
-					<p class="text-xs md:text-xs text-white/90 leading-relaxed">
-						Our advanced project management tools deliver real-time tracking and reporting, giving you full visibility into every stage of your project—no surprises, only informed decisions.
-					</p>
-				</div>
+        <!-- Point 1 -->
+        <div
+          class="hero-card hero-card-entrance bg-black/10 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20"
+          style="animation-delay: 0.4s;"
+        >
+          <h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
+            Clarity Through Complete Transparency
+          </h3>
+          <p class="text-xs md:text-xs text-white/90 leading-relaxed">
+            Our advanced project management tools deliver real-time tracking and
+            reporting, giving you full visibility into every stage of your
+            project—no surprises, only informed decisions.
+          </p>
+        </div>
 
-				<!-- Point 2 -->
-				<div class="hero-card hero-card-entrance bg-black/10 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20" style="animation-delay: 0.6s;">
-					<h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
-						Precision in Execution, Excellence in Results
-					</h3>
-					<p class="text-xs md:text-xs text-white/90 leading-relaxed">
-						We monitor every second and every detail to ensure your project is delivered on time, within budget, and to the highest quality standards.
-					</p>
-				</div>
+        <!-- Point 2 -->
+        <div
+          class="hero-card hero-card-entrance bg-black/10 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20"
+          style="animation-delay: 0.6s;"
+        >
+          <h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
+            Precision in Execution, Excellence in Results
+          </h3>
+          <p class="text-xs md:text-xs text-white/90 leading-relaxed">
+            We monitor every second and every detail to ensure your project is
+            delivered on time, within budget, and to the highest quality
+            standards.
+          </p>
+        </div>
 
-				<!-- Point 3 -->
-				<div class="hero-card hero-card-entrance bg-black/10 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20" style="animation-delay: 0.8s;">
-					<h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
-						Strong Partnerships, Seamless Delivery
-					</h3>
-					<p class="text-xs md:text-xs text-white/90 leading-relaxed">
-						By connecting your vision with the right expertise, resources, and contractors, we create a coordinated and efficient construction journey from planning through completion.
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Point 3 -->
+        <div
+          class="hero-card hero-card-entrance bg-black/10 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20"
+          style="animation-delay: 0.8s;"
+        >
+          <h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
+            Strong Partnerships, Seamless Delivery
+          </h3>
+          <p class="text-xs md:text-xs text-white/90 leading-relaxed">
+            By connecting your vision with the right expertise, resources, and
+            contractors, we create a coordinated and efficient construction
+            journey from planning through completion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<!-- Bottom Card - Mobile: positioned below, Desktop: absolute positioned -->
-	<div class="relative md:absolute bottom-4 md:bottom-8 right-4 md:right-8 max-w-[calc(100%-2rem)] md:max-w-sm w-full md:w-auto z-20 px-4 md:px-0 hero-card-entrance backdrop-blur-sm" style="animation-delay: 1s;">
-		<div class="hero-bottom-card  bg-black/10  rounded-lg p-4 md:p-5 border border-white/20">
-			<h3 class="text-base md:text-lg font-bold mb-2 text-blue-400">
-				Cost Optimization & Waste Reduction
-			</h3>
-			<p class="text-xs md:text-sm text-white/90 leading-relaxed mb-4">
-				Through precise planning, real-time monitoring, and disciplined execution, we significantly reduce material and time wastage across projects. While typical construction projects experience up to 12% overall wastage, our structured management approach enables us to save up to 80% of that potential loss, resulting in substantial cost savings for the client over the total project lifecycle.
-			</p>
-			<button 
-				id="cost-optimization-btn"
-				class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-2.5 md:py-2 px-4 rounded-lg transition-colors duration-300 text-sm md:text-base"
-			>
-				Learn More
-			</button>
-		</div>
-	</div>
+  <!-- Bottom Card - Mobile: positioned below, Desktop: absolute positioned -->
+  <div
+    class="relative md:absolute bottom-4 md:bottom-8 right-4 md:right-8 max-w-[calc(100%-2rem)] md:max-w-sm w-full md:w-auto z-20 px-4 md:px-0 hero-card-entrance backdrop-blur-sm"
+    style="animation-delay: 1s;"
+  >
+    <div
+      class="hero-bottom-card bg-black/10 rounded-lg p-4 md:p-5 border border-white/20"
+    >
+      <h3 class="text-base md:text-lg font-bold mb-2 text-blue-400">
+        Cost Optimization & Waste Reduction
+      </h3>
+      <p class="text-xs md:text-sm text-white/90 leading-relaxed mb-4">
+        Through precise planning, real-time monitoring, and disciplined
+        execution, we significantly reduce material and time wastage across
+        projects. While typical construction projects experience up to 12%
+        overall wastage, our structured management approach enables us to save
+        up to 80% of that potential loss, resulting in substantial cost savings
+        for the client over the total project lifecycle.
+      </p>
+      <button
+        id="cost-optimization-btn"
+        class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-2.5 md:py-2 px-4 rounded-lg transition-colors duration-300 text-sm md:text-base"
+      >
+        Learn More
+      </button>
+    </div>
+  </div>
 </section>
 
 <script>
-	const costOptimizationBtn = document.getElementById('cost-optimization-btn');
-	if (costOptimizationBtn) {
-		costOptimizationBtn.addEventListener('click', () => {
-			const targetSection = document.getElementById('built-for-future');
-			if (targetSection) {
-				targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			}
-		});
-	}
+  const costOptimizationBtn = document.getElementById("cost-optimization-btn");
+  if (costOptimizationBtn) {
+    costOptimizationBtn.addEventListener("click", () => {
+      const targetSection = document.getElementById("built-for-future");
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
 
-	// Hero Image Rotation
-	const heroImages = document.querySelectorAll('.hero-bg-image');
-	let currentImageIndex = 0;
-	const imageCount = heroImages.length;
-	const rotationInterval = 10000; // 30 seconds
+  // Hero Image Rotation
+  const heroImages = document.querySelectorAll(".hero-bg-image");
+  let currentImageIndex = 0;
+  const imageCount = heroImages.length;
+  const rotationInterval = 10000; // 30 seconds
 
-	function switchHeroImage() {
-		if (heroImages.length === 0) return;
+  function switchHeroImage() {
+    if (heroImages.length === 0) return;
 
-		// Remove active class from current image
-		heroImages[currentImageIndex].classList.remove('hero-bg-active');
-		heroImages[currentImageIndex].classList.add('hero-bg-inactive');
+    // Remove active class from current image
+    heroImages[currentImageIndex].classList.remove("hero-bg-active");
+    heroImages[currentImageIndex].classList.add("hero-bg-inactive");
 
-		// Move to next image
-		currentImageIndex = (currentImageIndex + 1) % imageCount;
+    // Move to next image
+    currentImageIndex = (currentImageIndex + 1) % imageCount;
 
-		// Add active class to new image
-		heroImages[currentImageIndex].classList.remove('hero-bg-inactive');
-		heroImages[currentImageIndex].classList.add('hero-bg-active');
-	}
+    // Add active class to new image
+    heroImages[currentImageIndex].classList.remove("hero-bg-inactive");
+    heroImages[currentImageIndex].classList.add("hero-bg-active");
+  }
 
-	// Start image rotation after initial animation completes
-	setTimeout(() => {
-		if (imageCount > 1) {
-			setInterval(switchHeroImage, rotationInterval);
-		}
-	}, 2000); // Start rotation 2 seconds after page load
+  // Start image rotation after initial animation completes
+  setTimeout(() => {
+    if (imageCount > 1) {
+      setInterval(switchHeroImage, rotationInterval);
+    }
+  }, 2000); // Start rotation 2 seconds after page load
 </script>
 
 <style>
-	/* Background Image extends to top */
-	.hero-bg-extended {
-		top: -80px;
-		left: 0;
-		right: 0;
-		height: calc(100% + 80px);
-	}
-	
-	/* Background Image Animation */
-	.hero-bg-image {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		transition: opacity 2s ease-in-out, transform 2s ease-in-out;
-	}
+  /* Background Image extends to top */
+  .hero-bg-extended {
+    top: -80px;
+    left: 0;
+    right: 0;
+    height: calc(100% + 80px);
+  }
 
-	.hero-bg-active {
-		opacity: 1;
-		transform: scale(1);
-		z-index: 1;
-	}
+  /* Background Image Animation */
+  .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition:
+      opacity 2s ease-in-out,
+      transform 2s ease-in-out;
+  }
 
-	.hero-bg-inactive {
-		opacity: 0;
-		transform: scale(1.05);
-		z-index: 0;
-	}
+  .hero-bg-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+  }
 
-	/* Initial animation for first image */
-	.hero-bg-image:first-child {
-		animation: heroBgFadeIn 1.2s ease-out forwards;
-	}
+  .hero-bg-inactive {
+    opacity: 0;
+    transform: scale(1.05);
+    z-index: 0;
+  }
 
-	@keyframes heroBgFadeIn {
-		from {
-			opacity: 0;
-			transform: scale(1.1);
-		}
-		to {
-			opacity: 1;
-			transform: scale(1);
-		}
-	}
+  /* Initial animation for first image */
+  .hero-bg-image:first-child {
+    animation: heroBgFadeIn 1.2s ease-out forwards;
+  }
 
-	/* Card Entrance Animation */
-	.hero-card-entrance {
-		opacity: 0;
-		transform: translateY(30px);
-		animation: heroCardFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-	}
+  @keyframes heroBgFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
-	@keyframes heroCardFadeIn {
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
+  /* Card Entrance Animation */
+  .hero-card-entrance {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroCardFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
 
-	.hero-title-card {
-		transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-		            opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-		cursor: default;
-	}
+  @keyframes heroCardFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-	.hero-title-card:hover {
-		transform: translateY(-4px);
-		opacity: 0.95;
-	}
+  .hero-title-card {
+    transition:
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+  }
 
-	.hero-card {
-		transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-		            border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-		            transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-		            box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-		cursor: pointer;
-	}
+  .hero-title-card:hover {
+    transform: translateY(-4px);
+    opacity: 0.95;
+  }
 
-	.hero-card:hover {
-		background-color: rgba(255, 255, 255, 0.2);
-		border-color: rgba(255, 255, 255, 0.4);
-		transform: translateY(-4px) scale(1.02);
-		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
-	}
+  .hero-card {
+    transition:
+      background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
 
-	.hero-bottom-card {
-		transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-		            border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-		            transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-		            box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-		cursor: pointer;
-	}
+  .hero-card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.3),
+      0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  }
 
-	.hero-bottom-card:hover {
-		background-color: rgba(255, 255, 255, 0.1);
-		border-color: rgba(255, 255, 255, 0.4);
-		transform: translateY(-6px) scale(1.03);
-		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-	}
+  .hero-bottom-card {
+    transition:
+      background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .hero-bottom-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-6px) scale(1.03);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.3),
+      0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  }
 </style>
-
