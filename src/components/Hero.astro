@@ -1,9 +1,9 @@
 ---
 ---
 
-<section id="home" class="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden mb-16 py-8 md:py-12">
-	<!-- Background Image with Overlay -->
-	<div class="absolute inset-0 hero-bg-container">
+<section id="home" class="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden mb-16 -mt-20 md:-mt-24">
+	<!-- Background Image with Overlay - extends to top -->
+	<div class="absolute hero-bg-container hero-bg-extended">
 		<img 
 			src="https://images.unsplash.com/photo-1656329890168-a8f3888e9d71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
 			class="w-full h-full object-cover hero-bg-image"
@@ -11,8 +11,8 @@
 		<div class="absolute inset-0 bg-black/20"/>
 	</div>
 
-	<!-- Content -->
-	<div class="relative z-10 container mx-auto px-4 sm:px-4 lg:px-6 h-full flex pb-32 md:pb-0">
+	<!-- Content - starts below header -->
+	<div class="relative z-10 container mx-auto px-4 sm:px-4 lg:px-6 h-full flex pb-32 md:pb-0 pt-24 md:pt-[150px]">
 		<div class="max-w-xl w-full text-white">
 			<div class="space-y-3 md:space-y-3">
 				<!-- Main Title Card -->
@@ -87,6 +87,14 @@
 </script>
 
 <style>
+	/* Background Image extends to top */
+	.hero-bg-extended {
+		top: -80px;
+		left: 0;
+		right: 0;
+		height: calc(100% + 80px);
+	}
+	
 	/* Background Image Animation */
 	.hero-bg-image {
 		opacity: 0;

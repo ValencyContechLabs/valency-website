@@ -8,9 +8,9 @@ import Footer from "../components/Footer.astro";
   <Header />
   <main class="bg-white">
     <!-- Hero Section -->
-    <section id="about-hero" class="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden mb-16">
-      <!-- Background Image with Overlay -->
-      <div class="absolute inset-0 about-hero-bg-container">
+    <section id="about-hero" class="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden mb-16 -mt-20 md:-mt-24">
+      <!-- Background Image with Overlay - extends to top -->
+      <div class="absolute about-hero-bg-container about-hero-bg-extended">
         <img 
           src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop" 
           class="w-full h-full object-cover about-hero-bg-image"
@@ -19,8 +19,8 @@ import Footer from "../components/Footer.astro";
         <div class="absolute inset-0 bg-black/50"></div>
       </div>
 
-      <!-- Content -->
-      <div class="relative z-10 container mx-auto px-2 sm:px-4 lg:px-6 h-full flex items-center min-h-[500px] md:min-h-[600px]">
+      <!-- Content - starts below header -->
+      <div class="relative z-10 container mx-auto px-2 sm:px-4 lg:px-6 h-full flex items-center min-h-[500px] md:min-h-[600px] pt-24 md:pt-[150px]">
         <div class="max-w-4xl text-white">
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 about-hero-title">
             About Us
@@ -319,6 +319,14 @@ import Footer from "../components/Footer.astro";
 </script>
 
 <style>
+  /* About Hero Background extends to top */
+  .about-hero-bg-extended {
+    top: -80px;
+    left: 0;
+    right: 0;
+    height: calc(100% + 80px);
+  }
+
   /* About Hero Section Animations */
   .about-hero-bg-image {
     opacity: 0;
