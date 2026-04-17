@@ -1,274 +1,162 @@
 ---
 const heroImages = [
-  "https://images.unsplash.com/photo-1583024011792-b165975b52f5?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1627660080110-20045fd3875d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1656329890168-a8f3888e9d71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1602497485099-e41a116a272c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1615461476249-718ef8bc369c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1583024011792-b165975b52f5?q=80&w=1632&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1627660080110-20045fd3875d?q=80&w=1170&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1656329890168-a8f3888e9d71?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1170&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1602497485099-e41a116a272c?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1615461476249-718ef8bc369c?q=80&w=1974&auto=format&fit=crop",
+];
+
+const stats = [
+  { value: "5–7%", label: "Cost savings", sub: "Automated billing" },
+  { value: "5–10%", label: "Cost savings", sub: "Material management" },
+  { value: "2 Min", label: "Daily input", sub: "Per task, per engineer" },
+  { value: "100%", label: "Live visibility", sub: "Mobile & desktop" },
 ];
 ---
 
 <section
   id="home"
-  class="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden mb-16 -mt-20 md:-mt-24"
+  class="relative w-full min-h-[620px] md:min-h-[720px] lg:min-h-[820px] overflow-hidden -mt-20 md:-mt-24"
 >
-  <!-- Background Image with Overlay - extends to top -->
-  <div class="absolute hero-bg-container hero-bg-extended">
-    {
-      heroImages.map((imageSrc, index) => (
-        <img
-          src={imageSrc}
-          class={`w-full h-full object-cover hero-bg-image ${index === 0 ? "hero-bg-active" : "hero-bg-inactive"}`}
-          data-image-index={index}
-          alt={`Hero background ${index + 1}`}
-        />
-      ))
-    }
-    <div class="absolute inset-0 bg-black/50"></div>
+  <!-- Rotating Background Images -->
+  <div class="absolute hero-bg-extended inset-0" style="z-index:0;">
+    {heroImages.map((src, i) => (
+      <img
+        src={src}
+        class={`w-full h-full object-cover absolute inset-0 hero-bg-image ${i === 0 ? "hero-bg-active" : "hero-bg-inactive"}`}
+        data-image-index={i}
+        alt=""
+        aria-hidden="true"
+      />
+    ))}
+    <!-- Deep gradient overlay: dark on left for text legibility, lighter on right -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
   </div>
 
-  <!-- Content - starts below header -->
-  <div
-    class="relative z-10 container mx-auto px-4 sm:px-4 lg:px-6 h-full flex pb-32 md:pb-0 pt-24 md:pt-[150px]"
-  >
-    <div class="max-w-xl w-full text-white">
-      <div class="space-y-3 md:space-y-3">
-        <!-- Main Title Card -->
-        <div
-          class="hero-title-card hero-card-entrance rounded-lg p-4 md:p-3"
-          style="animation-delay: 0.2s;"
-        >
-          <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-            Revolutionising <span class="text-blue-800">Construction</span> Planning
-          </h1>
-        </div>
+  <!-- Main Content -->
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-[620px] md:min-h-[720px] lg:min-h-[820px] pt-28 md:pt-36 pb-0">
 
-        <!-- Point 1 -->
-        <div
-          class="hero-card hero-card-entrance bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20"
-          style="animation-delay: 0.4s;"
-        >
-          <h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
-            Clarity Through Complete Transparency
-          </h3>
-          <p class="text-xs md:text-xs text-white/90 leading-relaxed">
-            Our advanced project management tools deliver real-time tracking and
-            reporting, giving you full visibility into every stage of your
-            project—no surprises, only informed decisions.
-          </p>
-        </div>
+    <div class="max-w-3xl">
+      <!-- Category Badge -->
+      <div class="hero-entrance mb-6" style="animation-delay: 0.1s;">
+        <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full">
+          <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+          Construction Process Automation &amp; Control Software
+        </span>
+      </div>
 
-        <!-- Point 2 -->
-        <div
-          class="hero-card hero-card-entrance bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20"
-          style="animation-delay: 0.6s;"
-        >
-          <h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
-            Precision in Execution, Excellence in Results
-          </h3>
-          <p class="text-xs md:text-xs text-white/90 leading-relaxed">
-            We monitor every second and every detail to ensure your project is
-            delivered on time, within budget, and to the highest quality
-            standards.
-          </p>
-        </div>
+      <!-- Headline -->
+      <h1 class="hero-entrance text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6" style="animation-delay: 0.25s;">
+        Enterprise Control That<br/>
+        <span class="text-blue-400">Defines Your Financial</span><br/>
+        Outcomes
+      </h1>
 
-        <!-- Point 3 -->
-        <div
-          class="hero-card hero-card-entrance bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-3 border border-white/20"
-          style="animation-delay: 0.8s;"
+      <!-- Subheadline -->
+      <p class="hero-entrance text-white/80 text-lg md:text-xl leading-relaxed max-w-xl mb-10" style="animation-delay: 0.4s;">
+        Automate billing, material management, labour tracking, and quality control — giving your construction business complete financial visibility and control.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-entrance flex flex-wrap gap-4 mb-0" style="animation-delay: 0.55s;">
+        <a
+          href="/about"
+          class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 shadow-lg shadow-blue-900/40 text-base"
         >
-          <h3 class="text-sm md:text-base font-bold mb-2 md:mb-1.5">
-            Strong Partnerships, Seamless Delivery
-          </h3>
-          <p class="text-xs md:text-xs text-white/90 leading-relaxed">
-            By connecting your vision with the right expertise, resources, and
-            contractors, we create a coordinated and efficient construction
-            journey from planning through completion.
-          </p>
-        </div>
+          Book a Free Demo
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a
+          href="/how-it-works"
+          class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 text-base"
+        >
+          See How It Works
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Bottom Card - Mobile: positioned below, Desktop: absolute positioned -->
-  <div
-    class="relative md:absolute bottom-4 md:bottom-8 right-4 md:right-8 max-w-[calc(100%-2rem)] md:max-w-sm w-full md:w-auto z-20 px-4 md:px-0 hero-card-entrance backdrop-blur-sm"
-    style="animation-delay: 1s;"
-  >
-    <div
-      class="hero-bottom-card bg-black/20 rounded-lg p-4 md:p-5 border border-white/20"
-    >
-      <h3 class="text-base md:text-lg font-bold mb-2 text-blue-400">
-        Cost Optimization & Waste Reduction
-      </h3>
-      <p class="text-xs md:text-sm text-white/90 leading-relaxed mb-4">
-        Through precise planning, real-time monitoring, and disciplined
-        execution, we significantly reduce material and time wastage across
-        projects. While typical construction projects experience up to 12%
-        overall wastage, our structured management approach enables us to save
-        up to 80% of that potential loss, resulting in substantial cost savings
-        for the client over the total project lifecycle.
-      </p>
-      <button
-        id="cost-optimization-btn"
-        class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-2.5 md:py-2 px-4 rounded-lg transition-colors duration-300 text-sm md:text-base"
-      >
-        Learn More
-      </button>
+  <!-- Stats Bar — pinned to the bottom of the hero -->
+  <div class="relative z-10 w-full hero-entrance" style="animation-delay: 0.7s;">
+    <div class="bg-black/60 backdrop-blur-md border-t border-white/10">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+          {stats.map((stat) => (
+            <div class="flex flex-col items-center justify-center py-5 px-4 text-center group hover:bg-white/5 transition-colors duration-200">
+              <span class="text-2xl md:text-3xl font-bold text-blue-400 leading-none mb-1">{stat.value}</span>
+              <span class="text-white text-xs font-semibold uppercase tracking-wider mb-0.5">{stat.label}</span>
+              <span class="text-white/50 text-xs">{stat.sub}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <script>
+  // Smooth scroll for cost-optimization-btn (legacy support)
   const costOptimizationBtn = document.getElementById("cost-optimization-btn");
   if (costOptimizationBtn) {
     costOptimizationBtn.addEventListener("click", () => {
-      const targetSection = document.getElementById("built-for-future");
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      document.getElementById("built-for-future")?.scrollIntoView({ behavior: "smooth" });
     });
   }
 
   // Hero Image Rotation
   const heroImages = document.querySelectorAll(".hero-bg-image");
-  let currentImageIndex = 0;
-  const imageCount = heroImages.length;
-  const rotationInterval = 10000; // 30 seconds
+  let currentIndex = 0;
+  const total = heroImages.length;
 
   function switchHeroImage() {
-    if (heroImages.length === 0) return;
-
-    // Remove active class from current image
-    heroImages[currentImageIndex].classList.remove("hero-bg-active");
-    heroImages[currentImageIndex].classList.add("hero-bg-inactive");
-
-    // Move to next image
-    currentImageIndex = (currentImageIndex + 1) % imageCount;
-
-    // Add active class to new image
-    heroImages[currentImageIndex].classList.remove("hero-bg-inactive");
-    heroImages[currentImageIndex].classList.add("hero-bg-active");
+    if (!total) return;
+    heroImages[currentIndex].classList.remove("hero-bg-active");
+    heroImages[currentIndex].classList.add("hero-bg-inactive");
+    currentIndex = (currentIndex + 1) % total;
+    heroImages[currentIndex].classList.remove("hero-bg-inactive");
+    heroImages[currentIndex].classList.add("hero-bg-active");
   }
 
-  // Start image rotation after initial animation completes
   setTimeout(() => {
-    if (imageCount > 1) {
-      setInterval(switchHeroImage, rotationInterval);
-    }
-  }, 2000); // Start rotation 2 seconds after page load
+    if (total > 1) setInterval(switchHeroImage, 10000);
+  }, 2000);
 </script>
 
 <style>
-  /* Background Image extends to top */
   .hero-bg-extended {
     top: -80px;
-    left: 0;
-    right: 0;
     height: calc(100% + 80px);
   }
 
-  /* Background Image Animation */
   .hero-bg-image {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    transition:
-      opacity 2s ease-in-out,
-      transform 2s ease-in-out;
+    transition: opacity 2s ease-in-out, transform 12s ease-in-out;
   }
-
-  .hero-bg-active {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 1;
-  }
-
-  .hero-bg-inactive {
-    opacity: 0;
-    transform: scale(1.05);
-    z-index: 0;
-  }
-
-  /* Initial animation for first image */
+  .hero-bg-active  { opacity: 1; transform: scale(1);    z-index: 1; }
+  .hero-bg-inactive{ opacity: 0; transform: scale(1.06); z-index: 0; }
   .hero-bg-image:first-child {
-    animation: heroBgFadeIn 1.2s ease-out forwards;
+    animation: heroBgIn 1.4s ease-out forwards;
+  }
+  @keyframes heroBgIn {
+    from { opacity: 0; transform: scale(1.08); }
+    to   { opacity: 1; transform: scale(1);    }
   }
 
-  @keyframes heroBgFadeIn {
-    from {
-      opacity: 0;
-      transform: scale(1.1);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  /* Card Entrance Animation */
-  .hero-card-entrance {
+  /* Entrance animation for all hero content */
+  .hero-entrance {
     opacity: 0;
-    transform: translateY(30px);
-    animation: heroCardFadeIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform: translateY(24px);
+    animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-
-  @keyframes heroCardFadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .hero-title-card {
-    transition:
-      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: default;
-  }
-
-  .hero-title-card:hover {
-    transform: translateY(-4px);
-    opacity: 0.95;
-  }
-
-  .hero-card {
-    transition:
-      background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-  }
-
-  .hero-card:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-4px) scale(1.02);
-    box-shadow:
-      0 10px 25px -5px rgba(0, 0, 0, 0.3),
-      0 8px 10px -6px rgba(0, 0, 0, 0.2);
-  }
-
-  .hero-bottom-card {
-    transition:
-      background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-  }
-
-  .hero-bottom-card:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-6px) scale(1.03);
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.3),
-      0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  @keyframes heroFadeUp {
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>

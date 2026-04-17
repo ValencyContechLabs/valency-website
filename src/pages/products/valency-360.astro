@@ -1,0 +1,202 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout>
+  <Header />
+  <main class="bg-white">
+
+    <!-- Hero -->
+    <section class="relative w-full min-h-[560px] md:min-h-[640px] overflow-hidden mb-0 -mt-20 md:-mt-24">
+      <div class="absolute inset-0" style="top:-80px; height:calc(100% + 80px);">
+        <img
+          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&h=1080&fit=crop"
+          class="w-full h-full object-cover hero-bg"
+          alt="Valency 360 Platform"
+        />
+        <div class="absolute inset-0 bg-black/60"></div>
+      </div>
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center min-h-[560px] md:min-h-[640px] pt-28 md:pt-[160px]">
+        <div class="max-w-4xl text-white">
+          <div class="hero-badge inline-flex items-center gap-2 bg-white/15 border border-white/25 rounded-full px-4 py-1.5 text-sm text-white/90 font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+            All-in-One Suite
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-title">Valency 360</h1>
+          <p class="text-xl md:text-2xl text-white/85 leading-relaxed hero-desc max-w-3xl">
+            One platform. Six powerful modules. Complete visibility across every aspect of your construction project — from the first day on site to final handover.
+          </p>
+          <div class="hero-cta flex flex-wrap gap-4 mt-10">
+            <a href="/about#request-demo" class="bg-white text-black font-semibold px-7 py-3 rounded-full hover:bg-gray-100 transition-colors">Book a Demo</a>
+            <a href="/products" class="border border-white/40 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">All Products</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What is Valency 360 -->
+    <section class="w-full bg-gray-950 py-16 md:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">The Unified Construction Command Centre</h2>
+          <p class="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto mb-14">
+            Construction projects fail due to fragmented information — attendance on paper, materials in spreadsheets, quality on WhatsApp. Valency 360 replaces all of that with a single, connected platform where every module speaks to every other, generating automated billing, real-time insights, and zero-gap accountability.
+          </p>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              { num: "6", label: "Integrated Modules" },
+              { num: "1", label: "Unified Dashboard" },
+              { num: "100%", label: "Automated Billing" },
+              { num: "Real-time", label: "Project Insights" },
+              { num: "Zero", label: "Data Silos" },
+              { num: "End-to-End", label: "Project Lifecycle" },
+            ].map(stat => (
+              <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="text-3xl font-bold text-white mb-1">{stat.num}</div>
+                <div class="text-white/60 text-sm">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modules Overview -->
+    <section class="w-full bg-white py-16 md:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">What's Inside</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Six Modules, One Platform</h2>
+          </div>
+          <div class="space-y-6">
+            {[
+              {
+                num: "01", color: "bg-blue-600", link: "/products/labour-attendance",
+                title: "Labour Attendance Management",
+                desc: "Real-time workforce tracking with biometric or mobile check-in. Auto-generate muster rolls, wage sheets, and activity-wise productivity reports. Subcontractor billing flows directly from daily attendance data.",
+              },
+              {
+                num: "02", color: "bg-emerald-600", link: "/products/material-management",
+                title: "Material Management",
+                desc: "End-to-end material lifecycle — from indent to GRN to consumption. Monitor stock levels at site, track wastage, and compare actual usage against BOQ in real time.",
+              },
+              {
+                num: "03", color: "bg-violet-600", link: "/products/boq-document-management",
+                title: "BOQ & Document Management",
+                desc: "Upload and manage your Bill of Quantities, drawings, and project documents with full version control. Auto-generate progress billing claims and track variation orders.",
+              },
+              {
+                num: "04", color: "bg-orange-500", link: "/products/work-order-management",
+                title: "Work Order & Purchase Order (ENFA) Management",
+                desc: "Create, approve, and track work orders and purchase orders with multi-level approval workflows. ENFA-ready with PO-to-invoice matching to ensure nothing falls through the cracks.",
+              },
+              {
+                num: "05", color: "bg-rose-600", link: "/products/qc-management",
+                title: "QC (Quality Check) Management",
+                desc: "Digital inspection checklists for every work activity. Log NCRs, defects, and corrective actions with photo evidence. Maintain a complete quality trail from foundation to finishing.",
+              },
+              {
+                num: "06", color: "bg-slate-600", link: "/products/machine-management",
+                title: "Machine Management",
+                desc: "Track equipment utilisation, fuel consumption, operator assignments, and maintenance schedules. Allocate machine costs directly to site activities for accurate cost reporting.",
+              },
+            ].map(mod => (
+              <div class="flex gap-6 p-6 border border-gray-200 rounded-2xl hover:shadow-md transition-shadow group">
+                <div class={`flex-shrink-0 w-12 h-12 ${mod.color} rounded-xl flex items-center justify-center text-white font-bold text-sm`}>
+                  {mod.num}
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-bold text-gray-900 mb-2">{mod.title}</h3>
+                  <p class="text-gray-600 text-sm leading-relaxed">{mod.desc}</p>
+                </div>
+                <a href={mod.link} class="flex-shrink-0 self-center text-gray-400 group-hover:text-gray-700 transition-colors">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Benefits -->
+    <section class="w-full bg-gray-50 py-16 md:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">Why Valency 360</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Built for How Sites Actually Work</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: "⚡",
+                title: "One-Click Automated Billing",
+                desc: "Daily data from labour, materials, and machines flows automatically into billing. Generate accurate invoices in seconds — no manual compilation, no errors.",
+              },
+              {
+                icon: "📡",
+                title: "Real-Time Project Dashboard",
+                desc: "Every project stakeholder — from site engineer to MD — sees the same live data. No more waiting for weekly reports that are already outdated.",
+              },
+              {
+                icon: "🔗",
+                title: "Fully Integrated Modules",
+                desc: "A work order triggers a purchase order, which updates material stock, which reflects in cost reports — all automatically. No re-entry, no data loss.",
+              },
+              {
+                icon: "📱",
+                title: "Works On-Site, Offline Too",
+                desc: "Field teams capture data from mobile devices even in low-connectivity zones. Data syncs automatically when connection is restored.",
+              },
+              {
+                icon: "🔐",
+                title: "Role-Based Access Control",
+                desc: "Site supervisors, project managers, procurement heads, and management each see exactly the information they need — no more, no less.",
+              },
+              {
+                icon: "📊",
+                title: "Automated Projections & Forecasting",
+                desc: "The system projects completion dates, cost-at-completion, and resource requirements based on current progress — so you can act before problems occur.",
+              },
+            ].map(b => (
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-white border border-gray-200 rounded-xl flex items-center justify-center text-2xl shadow-sm">{b.icon}</div>
+                <div>
+                  <h3 class="text-base font-bold text-gray-900 mb-1">{b.title}</h3>
+                  <p class="text-gray-600 text-sm leading-relaxed">{b.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="w-full bg-gray-950 py-16 md:py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to see Valency 360 in action?</h2>
+        <p class="text-white/70 text-lg mb-8 max-w-xl mx-auto">Schedule a live walkthrough with a Valency expert tailored to your project type.</p>
+        <a href="/about#request-demo" class="inline-block bg-white text-black font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors">Book a Free Demo</a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .hero-bg { opacity: 0; transform: scale(1.1); animation: bgFade 2.4s ease-out forwards; }
+  .hero-badge { opacity: 0; transform: translateY(15px); animation: fadeUp 1.2s cubic-bezier(0.34,1.56,0.64,1) forwards; animation-delay:0.3s; }
+  .hero-title { opacity: 0; transform: translateY(30px); animation: fadeUp 1.6s cubic-bezier(0.34,1.56,0.64,1) forwards; animation-delay:0.6s; }
+  .hero-desc { opacity: 0; transform: translateY(30px); animation: fadeUp 1.6s cubic-bezier(0.34,1.56,0.64,1) forwards; animation-delay:0.9s; }
+  .hero-cta { opacity: 0; transform: translateY(20px); animation: fadeUp 1.4s cubic-bezier(0.34,1.56,0.64,1) forwards; animation-delay:1.2s; }
+  @keyframes bgFade { to { opacity:1; transform:scale(1); } }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+</style>
