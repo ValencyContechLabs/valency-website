@@ -1,20 +1,28 @@
 ---
 const features = [
 	{
-		title: 'One-Click Billing',
-		description: 'Automates the entire billing workflow, minimizing manual intervention, reducing errors, and significantly accelerating payment cycles.',
+		title: 'Automatic Billing',
+		savings: '5–7%',
+		savingsLabel: 'Cost Savings',
+		description: 'Auto-generate invoices with measurement sheets. BOQ restriction prevents over-billing. Eliminates manual calculation errors and post-audit delays.',
 	},
 	{
-		title: 'Real-Time Project Tracking',
-		description: 'Provides live visibility into project progress, delays, milestones, and detailed cost breakdowns—keeping all stakeholders informed at every stage.',
+		title: 'Material Management',
+		savings: '5–10%',
+		savingsLabel: 'Cost Savings',
+		description: 'Store & Site Reconciliation: track every material from PO to physical stock. Thumb-rule consumption control prevents theft, pilferage, and excess ordering.',
 	},
 	{
-		title: 'Productivity Insights',
-		description: 'Activity-based tracking of labor, materials, and resources helps identify inefficiencies, optimize utilization, and ensure maximum on-site productivity.',
+		title: 'Live Site Reporting',
+		savings: '1–2%',
+		savingsLabel: 'Cost Savings',
+		description: 'Real-time labour count and task progress on Mobile & Web. Avoid idle labour and increase productivity with live visibility across all buildings.',
 	},
 	{
-		title: 'Projections & Estimations',
-		description: 'Delivers accurate forecasts for timelines, costs, and potential risks, enabling proactive decision-making and better control over project outcomes.',
+		title: 'Quality Check & Approvals',
+		savings: '100%',
+		savingsLabel: 'Digital',
+		description: 'Raise RFI → Auto Assign to QC → Inspection → Close. Approve from the mobile app with no delay. Detailed dashboard ensures no ticket is ever missed.',
 	},
 ];
 ---
@@ -45,13 +53,19 @@ const features = [
 			<!-- Features Grid -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
 				{features.map((feature, index) => (
-					<div 
+					<div
 						class="statistics-card bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/20 shadow-lg animate-scale-in"
 						style={`animation-delay: ${index * 0.1}s;`}
 					>
-						<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">
-							{feature.title}
-						</h3>
+						<div class="flex items-start justify-between mb-3">
+							<h3 class="text-xl md:text-2xl font-bold text-gray-900 flex-1 pr-2">
+								{feature.title}
+							</h3>
+							<div class="flex-shrink-0 text-right">
+								<div class="text-lg font-bold text-amber-600">{feature.savings}</div>
+								<div class="text-xs text-gray-500">{feature.savingsLabel}</div>
+							</div>
+						</div>
 						<p class="text-gray-600 text-base leading-relaxed">
 							{feature.description}
 						</p>

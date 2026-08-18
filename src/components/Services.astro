@@ -1,285 +1,275 @@
 ---
-const services = [
+const features = [
 	{
 		number: '01',
-		title: 'Project Management',
-		description: 'End-to-end oversight to keep your project on track, efficient, and controlled.',
+		title: 'Automatic Billing',
+		savings: '5–7% Cost Savings',
+		savingsColor: 'green',
+		description: 'Auto-generate vendor invoices with measurement sheets. BOQ-restricted billing eliminates over-payment and manual errors.',
 		bullets: [
-			'Comprehensive project planning and scheduling',
-			'Cost control and budget tracking',
-			'Quality assurance and compliance management',
-			'Risk identification and mitigation',
-			'Real-time progress monitoring and reporting'
+			'Auto-generate invoices with measurement sheet (L×B×H)',
+			'BOQ restriction — no over-billing beyond approved quantities',
+			'Eliminates manual calculation errors & post-audit process',
+			'Speeds up payment cycle with zero manual intervention',
 		],
-		image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
-		isFeatured: true,
+		icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+			<rect x="8" y="4" width="32" height="40" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+			<path d="M16 14h16M16 20h16M16 26h10" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+			<circle cx="34" cy="34" r="8" fill="#16a34a"/>
+			<path d="M30 34l2.5 2.5L38 31" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>`,
+		accentColor: '#2563eb',
+		bgLight: '#eff6ff',
 	},
 	{
 		number: '02',
-		title: 'Construction Management',
-		description: 'Expert coordination of all construction activities from start to finish.',
+		title: 'Material Management',
+		savings: '5–10% Cost Savings',
+		savingsColor: 'green',
+		description: 'Complete store and site reconciliation — track every material from purchase order to physical stock and prevent leakage.',
 		bullets: [
-			'On-site supervision and contractor coordination',
-			'Resource planning and workflow optimization',
-			'Safety management and regulatory compliance',
-			'Timeline management and progress control',
-			'Issue resolution and performance tracking'
+			'Store Reconciliation: PO raised → received → issued → physical stock',
+			'Site Reconciliation: MIV issued → thumb-rule consumption → allowed wastage',
+			'No theft or pilferage — instant balance visibility',
+			'No duplicate or excess ordering across projects',
 		],
-		image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop',
+		icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+			<rect x="4" y="20" width="40" height="24" rx="2" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+			<path d="M4 26h40" stroke="#d97706" stroke-width="2"/>
+			<rect x="10" y="30" width="8" height="8" rx="1" fill="#d97706"/>
+			<rect x="22" y="30" width="8" height="8" rx="1" fill="#d97706"/>
+			<path d="M10 20l4-12h20l4 12" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M20 20v-8M28 20v-8" stroke="#d97706" stroke-width="1.5"/>
+		</svg>`,
+		accentColor: '#d97706',
+		bgLight: '#fffbeb',
 	},
 	{
 		number: '03',
-		title: 'General Contracting',
-		description: 'Single-point responsibility for seamless construction execution.',
+		title: 'Live Site Report',
+		savings: '1–2% Cost Savings',
+		savingsColor: 'green',
+		description: 'Real-time visibility into labour count and task progress from mobile or desktop — eliminate idle workforce.',
 		bullets: [
-			'Management of subcontractors and suppliers',
-			'Material procurement and logistics coordination',
-			'Construction execution and site management',
-			'Schedule adherence and quality control',
-			'Health, safety, and compliance oversight'
+			'Live labour count with vendor-wise assigned status',
+			'Live task progress across all buildings and blocks',
+			'Avoid idle labour — increase on-site productivity',
+			'Accessible on Mobile & Desktop anywhere, anytime',
 		],
-		image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+		icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+			<rect x="6" y="8" width="28" height="22" rx="2" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+			<path d="M10 24l6-6 4 4 6-8" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			<circle cx="10" cy="24" r="2" fill="#16a34a"/>
+			<circle cx="16" cy="18" r="2" fill="#16a34a"/>
+			<circle cx="20" cy="22" r="2" fill="#16a34a"/>
+			<circle cx="26" cy="14" r="2" fill="#16a34a"/>
+			<rect x="30" y="24" width="12" height="20" rx="2" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+			<circle cx="36" cy="27" r="1.5" fill="#16a34a"/>
+			<path d="M33 31h6M33 34h6M33 37h4" stroke="#16a34a" stroke-width="1" stroke-linecap="round"/>
+		</svg>`,
+		accentColor: '#16a34a',
+		bgLight: '#f0fdf4',
 	},
 	{
 		number: '04',
-		title: 'Consulting Services',
-		description: 'Strategic guidance to support informed decision-making.',
+		title: 'Quality Check Management',
+		savings: 'Quick Process',
+		savingsColor: 'blue',
+		description: 'Structured RFI-to-closure workflow ensures every quality inspection is tracked, assigned, and resolved — no activity missed.',
 		bullets: [
-			'Feasibility studies and project advisory',
-			'Risk, cost, and schedule analysis',
-			'Value engineering and optimization strategies',
-			'Procurement and contract strategy support',
-			'Independent project reviews and audits'
+			'Raise RFI → Auto Assign to QC Engineer → Inspection & Comments',
+			'Close or Follow-up with full audit trail',
+			'Dashboard showing completed and remaining percentage',
+			'No activity left out for QC — 100% quality compliance',
 		],
-		image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+		icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+			<rect x="10" y="6" width="28" height="36" rx="3" fill="#f0f9ff" stroke="#0369a1" stroke-width="2"/>
+			<path d="M18 6v4h12V6" stroke="#0369a1" stroke-width="2" stroke-linecap="round"/>
+			<path d="M16 22l3 3 7-7" stroke="#0369a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M16 32h16" stroke="#0369a1" stroke-width="1.5" stroke-linecap="round"/>
+			<path d="M16 36h10" stroke="#0369a1" stroke-width="1.5" stroke-linecap="round"/>
+			<circle cx="34" cy="34" r="7" fill="#0369a1"/>
+			<path d="M31 34l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>`,
+		accentColor: '#0369a1',
+		bgLight: '#f0f9ff',
 	},
 	{
 		number: '05',
-		title: 'Design–Build Services',
-		description: 'Integrated design and construction for faster, smarter delivery.',
+		title: 'Reports & Analytics',
+		savings: 'Always Ready',
+		savingsColor: 'purple',
+		description: 'Automated daily, weekly, and monthly reports generated instantly and delivered straight to WhatsApp — zero preparation effort.',
 		bullets: [
-			'Single contract for design and construction',
-			'Improved coordination between design and execution teams',
-			'Reduced project timelines and cost efficiencies',
-			'Enhanced accountability and communication',
-			'Streamlined change management'
+			'Daily labour and productivity report',
+			'Daily, weekly and monthly progress reports',
+			'Attendance report with overtime tracking',
+			'Automatic reports delivered to WhatsApp',
 		],
-		image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop',
+		icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+			<rect x="4" y="4" width="40" height="32" rx="3" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+			<rect x="10" y="26" width="6" height="6" rx="1" fill="#7c3aed"/>
+			<rect x="20" y="18" width="6" height="14" rx="1" fill="#7c3aed" opacity="0.7"/>
+			<rect x="30" y="12" width="6" height="20" rx="1" fill="#7c3aed" opacity="0.4"/>
+			<path d="M4 40l6-4h28l6 4" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/>
+			<path d="M12 14l8-4 8 6 8-8" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>`,
+		accentColor: '#7c3aed',
+		bgLight: '#faf5ff',
 	},
 	{
 		number: '06',
-		title: 'Pre-Construction Services',
-		description: 'Strong foundations for successful project delivery.',
+		title: 'Approvals Anywhere',
+		savings: 'No Delay',
+		savingsColor: 'orange',
+		description: 'Approve work orders and JMRs from your mobile — no waiting, no paperwork, no process bottlenecks.',
 		bullets: [
-			'Project feasibility and scope definition',
-			'Site analysis and constructability reviews',
-			'Preliminary scheduling and planning',
-			'Cost forecasting and risk assessment',
-			'Procurement and phasing strategies'
+			'Approve work orders and JMRs from the mobile app',
+			'Instant notifications — no waiting for approvals',
+			'Quick process leads to increased team productivity',
+			'Complete audit trail of all approvals and decisions',
 		],
-		image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
-	},
-	{
-		number: '07',
-		title: 'Project Estimation & Budgeting',
-		description: 'Accurate financial planning to control costs from day one.',
-		bullets: [
-			'Detailed cost estimation and BOQ preparation',
-			'Budget planning and cost benchmarking',
-			'Value engineering for cost optimization',
-			'Cash flow forecasting',
-			'Ongoing cost monitoring and reporting'
-		],
-		image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop',
+		icon: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+			<rect x="14" y="4" width="20" height="36" rx="3" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+			<circle cx="24" cy="36" r="2" fill="#ea580c"/>
+			<path d="M20 10h8" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/>
+			<circle cx="35" cy="14" r="8" fill="#ea580c"/>
+			<path d="M31 14l2.5 2.5L39 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M18 22l3 3 5-5" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>`,
+		accentColor: '#ea580c',
+		bgLight: '#fff7ed',
 	},
 ];
 ---
 
-<section id="services" class="w-full bg-white pb-10 md:pb-16">
-	<div class="container mx-auto px-2 sm:px-4 lg:px-6">
+<section id="services" class="w-full bg-gray-50 py-16 md:py-24">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="max-w-7xl mx-auto">
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-				<div class="animate-fade-in-up">
-					<p class="text-red-600 text-lg md:text-xl font-semibold mb-2">
-						Innovative Engineering Solutions to Meet Your Needs
-					</p>
-					<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-						Our Services
-					</h2>
-					<p class="text-gray-600 text-lg mb-6">
-						At Valency Engineering Consultancy, we provide a full spectrum of services that ensure exceptional quality and precision across all stages of a project. Our offerings include:
-					</p>
-				</div>
-				<!-- <div class="flex items-end justify-end animate-fade-in-right">
-					<button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3  transition-colors flex items-center gap-2 group">
-					</button>
-				</div> -->
+
+			<!-- Section Header -->
+			<div class="text-center mb-16 animate-fade-in-up">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">
+					Fully Customizable to Fit Your Exact Business Needs
+				</p>
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-5">
+					Product Features
+				</h2>
+				<p class="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+					Six integrated modules that automate your entire construction workflow — from billing to quality to approvals.
+				</p>
 			</div>
 
-			<!-- Services Horizontal Scroll Container -->
-			<div class="overflow-x-auto pb-4 scrollbar-hide" id="services-scroll" style="scroll-behavior: smooth; cursor: grab; scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
-				<div class="flex gap-6 md:gap-8 px-2" style="min-width: max-content; width: max-content;">
-					{services.map((service, index) => (
-						<div 
-							class={`service-card relative flex-shrink-0 w-66 md:w-80 h-80 md:h-[400px] rounded-md overflow-hidden cursor-pointer animate-rotate-in`}
-							style={`animation-delay: ${index * 0.15}s; transition-delay: ${index * 0.15}s;`}
-							data-service-index={index}
-						>
-							{service.image && (
-								<img 
-									src={service.image}
-									alt={service.title}
-									class="service-card-image w-full h-full object-cover transition-transform duration-500"
-								/>
-							)}
-							<div class="service-gradient absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 transition-opacity duration-300"></div>
+			<!-- Features Grid: 3 × 2 — all visible -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+				{features.map((feature, index) => (
+					<div
+						class="feature-card group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden animate-card-in"
+						style={`animation-delay: ${index * 0.08}s;`}
+					>
+						<!-- Coloured top accent bar -->
+						<div class="h-1 w-full transition-all duration-300 feature-accent" style={`background: ${feature.accentColor};`}></div>
 
-							<!-- Content Overlay -->
-							<div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-								<h3 class="text-2xl md:text-3xl font-bold mb-3">{service.title}</h3>
-								<p class="service-description text-white/90 text-sm md:text-base leading-relaxed mb-2 opacity-0 max-h-0 overflow-hidden transition-all duration-300">
-									{service.description}
-								</p>
-								<div class="service-card-description overflow-hidden transition-all duration-300" style="max-height: 0; opacity: 0;">
-									<ul class="text-white/90 text-xs md:text-sm leading-relaxed mt-3 space-y-1.5 list-disc list-inside">
-										{service.bullets?.map((bullet) => (
-											<li>{bullet}</li>
-										))}
-									</ul>
+						<div class="p-7">
+							<!-- Icon + Badge row -->
+							<div class="flex items-start justify-between mb-5">
+								<div class="feature-icon-wrap p-3 rounded-xl transition-colors duration-300" style={`background: ${feature.bgLight};`}>
+									<Fragment set:html={feature.icon} />
 								</div>
+								<span class={`savings-badge inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold ${
+									feature.savingsColor === 'green' ? 'bg-green-50 text-green-700 border border-green-200' :
+									feature.savingsColor === 'blue'  ? 'bg-blue-50 text-blue-700 border border-blue-200'  :
+									feature.savingsColor === 'purple'? 'bg-purple-50 text-purple-700 border border-purple-200':
+									'bg-orange-50 text-orange-700 border border-orange-200'
+								}`}>
+									{feature.savings}
+								</span>
 							</div>
+
+							<!-- Number + Title -->
+							<div class="mb-3">
+								<span class="text-xs font-bold text-gray-300 tracking-widest">{feature.number}</span>
+								<h3 class="text-xl font-bold text-gray-900 mt-0.5 group-hover:transition-colors" style={`color: inherit;`}>
+									{feature.title}
+								</h3>
+							</div>
+
+							<!-- Description -->
+							<p class="text-gray-500 text-sm leading-relaxed mb-5">
+								{feature.description}
+							</p>
+
+							<!-- Divider -->
+							<div class="border-t border-gray-100 mb-5"></div>
+
+							<!-- Bullets -->
+							<ul class="space-y-2.5">
+								{feature.bullets.map((bullet) => (
+									<li class="flex items-start gap-2.5 text-sm text-gray-600">
+										<svg class="flex-shrink-0 mt-0.5 w-4 h-4" viewBox="0 0 16 16" fill="none">
+											<circle cx="8" cy="8" r="7" fill={feature.bgLight} stroke={feature.accentColor} stroke-width="1.5"/>
+											<path d="M5 8l2 2 4-4" stroke={feature.accentColor} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+										</svg>
+										{bullet}
+									</li>
+								))}
+							</ul>
 						</div>
-					))}
-				</div>
+					</div>
+				))}
+			</div>
+
+			<!-- Bottom CTA strip -->
+			<div class="mt-14 text-center animate-fade-in-up">
+				<p class="text-gray-400 text-sm">
+					Enterprise-grade. Fully customizable. Deployed in days.
+				</p>
 			</div>
 		</div>
 	</div>
 </section>
 
 <script>
-	// Intersection Observer for section animation
 	const servicesSection = document.getElementById('services');
 	if (servicesSection) {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						setTimeout(() => {
-							entry.target.classList.add('visible');
-						}, 200);
+						entry.target.classList.add('visible');
 					}
 				});
 			},
-			{ rootMargin: '0px 0px -100px 0px' }
+			{ rootMargin: '0px 0px -80px 0px' }
 		);
 		observer.observe(servicesSection);
 	}
-
-	// Service card hover effects
-	document.querySelectorAll('.service-card').forEach((card) => {
-		const htmlCard = card as HTMLElement;
-		const gradient = card.querySelector('.service-gradient') as HTMLElement | null;
-		const mainDescription = card.querySelector('.service-description') as HTMLElement | null;
-		const bulletsDescription = card.querySelector('.service-card-description') as HTMLElement | null;
-		const image = card.querySelector('.service-card-image') as HTMLImageElement | null;
-
-		htmlCard.addEventListener('mouseenter', () => {
-			htmlCard.style.transform = 'translateY(-8px) rotate(1deg)';
-			if (gradient) {
-				gradient.style.opacity = '1';
-			}
-			if (mainDescription) {
-				mainDescription.style.opacity = '1';
-				mainDescription.style.maxHeight = '100px';
-			}
-			if (bulletsDescription) {
-				bulletsDescription.style.maxHeight = '300px';
-				bulletsDescription.style.opacity = '1';
-			}
-			if (image) {
-				image.style.transform = 'scale(1.1)';
-			}
-		});
-
-		htmlCard.addEventListener('mouseleave', () => {
-			htmlCard.style.transform = 'translateY(0) rotate(0deg)';
-			if (gradient) {
-				gradient.style.opacity = '0';
-			}
-			if (mainDescription) {
-				mainDescription.style.opacity = '0';
-				mainDescription.style.maxHeight = '0';
-			}
-			if (bulletsDescription) {
-				bulletsDescription.style.maxHeight = '0';
-				bulletsDescription.style.opacity = '0';
-			}
-			if (image) {
-				image.style.transform = 'scale(1)';
-			}
-		});
-	});
 </script>
 
 <style>
 	.animate-fade-in-up {
 		opacity: 0;
-		transform: translateY(60px);
-		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+		transform: translateY(40px);
+		transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 	}
-
-	.animate-fade-in-right {
-		opacity: 0;
-		transform: translateX(60px);
-		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-	}
-
-	#services.visible .animate-fade-in-up,
-	#services.visible .animate-fade-in-right {
+	#services.visible .animate-fade-in-up {
 		opacity: 1;
-		transform: translateY(0) translateX(0);
+		transform: translateY(0);
 	}
 
-	.animate-rotate-in {
+	.animate-card-in {
 		opacity: 0;
-		transform: translateY(50px) scale(0.8);
-		transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+		transform: translateY(32px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out,
+		            box-shadow 0.3s ease, border-color 0.3s ease;
 	}
-
-	#services.visible .animate-rotate-in {
+	#services.visible .animate-card-in {
 		opacity: 1;
-		transform: translateY(0) scale(1);
+		transform: translateY(0);
 	}
 
-	.service-card {
-		transition: transform 1s ease-out;
-	}
-
-	.scrollbar-hide {
-		scrollbar-width: thin;
-		scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
-	}
-
-	.scrollbar-hide::-webkit-scrollbar {
-		height: 8px;
-	}
-
-	.scrollbar-hide::-webkit-scrollbar-track {
-		background: transparent;
-	}
-
-	.scrollbar-hide::-webkit-scrollbar-thumb {
-		background: rgba(156, 163, 175, 0.3);
-		border-radius: 4px;
-		opacity: 0;
-		transition: opacity 0.3s ease;
-	}
-
-	.scrollbar-hide:hover::-webkit-scrollbar-thumb {
-		opacity: 1;
-	}
-
-	.scrollbar-hide:hover {
-		scrollbar-color: rgba(156, 163, 175, 0.6) transparent;
+	.feature-card:hover {
+		transform: translateY(-4px);
+		border-color: #e2e8f0;
 	}
 </style>

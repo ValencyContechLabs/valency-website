@@ -1,5 +1,15 @@
 ---
 import logoLarge from '../assets/logo_large.png';
+
+const modules = [
+	{ name: 'Labour Attendance Management', href: '/products/labour-attendance' },
+	{ name: 'Material Management', href: '/products/material-management' },
+	{ name: 'BOQ & Document Management', href: '/products/boq-document-management' },
+	{ name: 'Work Order & Purchase Order (ENFA)', href: '/products/work-order-management' },
+	{ name: 'QC (Quality Check) Management', href: '/products/qc-management' },
+	{ name: 'Machine Management', href: '/products/machine-management' },
+	{ name: 'RMC Concrete Management', href: '/products/rmc-concrete-management' },
+];
 ---
 
 <header id="main-header" class="flex justify-center w-full sticky top-2 z-50 transition-transform duration-400 ease-out">
@@ -20,6 +30,40 @@ import logoLarge from '../assets/logo_large.png';
 				<a href="/how-it-works" class="text-white hover:text-gray-300 transition-colors font-medium">
 					How It Works
 				</a>
+				<!-- Products with module dropdown -->
+				<div class="relative group">
+					<a href="/products" class="text-white hover:text-gray-300 transition-colors font-medium inline-flex items-center gap-1.5">
+						Products
+						<svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</a>
+
+					<!-- Dropdown (pt-6 acts as an invisible bridge so hover survives the gap) -->
+					<div class="absolute left-1/2 -translate-x-1/2 top-full pt-6 w-[320px] z-50 opacity-0 invisible translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0">
+						<div class="bg-black/80 backdrop-blur-md border border-white/10 rounded-2xl p-2 shadow-2xl">
+							{modules.map((module) => (
+								<a
+									href={module.href}
+									class="block px-3 py-2.5 rounded-xl text-white/85 hover:text-white hover:bg-white/10 transition-colors text-sm leading-snug"
+								>
+									{module.name}
+								</a>
+							))}
+							<div class="mt-2 pt-2 border-t border-white/10">
+								<a
+									href="/products"
+									class="flex items-center justify-between px-3 py-2.5 rounded-xl text-white font-semibold hover:bg-white/10 transition-colors text-sm"
+								>
+									View All Products
+									<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 				<a href="/about" class="text-white hover:text-gray-300 transition-colors font-medium">
 					About Us
 				</a>
@@ -30,6 +74,10 @@ import logoLarge from '../assets/logo_large.png';
 				<!-- Desktop Demo Button -->
 				<a href="/about#request-demo" class="hidden md:inline-block bg-white text-black font-semibold px-4 py-1 pb-[6px] transition-colors shadow-sm hover:shadow-md rounded-3xl">
 					Demo
+				</a>
+				<!-- Desktop Login Button -->
+				<a href="https://app.valency.in/login" class="hidden md:inline-block border border-white/50 text-white font-semibold px-4 py-1 pb-[6px] transition-colors hover:bg-white/10 rounded-3xl">
+					Login
 				</a>
 				
 				<!-- Mobile Menu Toggle Button -->
@@ -83,23 +131,60 @@ import logoLarge from '../assets/logo_large.png';
 				>
 					Home
 				</a>
-				<a 
-					href="/how-it-works" 
+				<a
+					href="/how-it-works"
 					class="block text-white hover:text-gray-300 transition-colors font-medium py-3 border-b border-white/10 mobile-menu-link"
 				>
 					How It Works
 				</a>
-				<a 
-					href="/about" 
+				<!-- Products with expandable module list -->
+				<div class="border-b border-white/10">
+					<button
+						id="mobile-products-toggle"
+						type="button"
+						class="w-full flex items-center justify-between text-white hover:text-gray-300 transition-colors font-medium py-3 focus:outline-none"
+						aria-expanded="false"
+						aria-controls="mobile-products-submenu"
+					>
+						<span>Products</span>
+						<svg id="mobile-products-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</button>
+					<div id="mobile-products-submenu" class="hidden pb-3 space-y-1">
+						{modules.map((module) => (
+							<a
+								href={module.href}
+								class="block pl-3 pr-2 py-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors text-sm leading-snug mobile-menu-link"
+							>
+								{module.name}
+							</a>
+						))}
+						<a
+							href="/products"
+							class="flex items-center gap-3 pl-3 pr-2 py-2.5 rounded-lg text-white font-semibold hover:bg-white/10 transition-colors text-sm mobile-menu-link"
+						>
+							View All Products
+						</a>
+					</div>
+				</div>
+				<a
+					href="/about"
 					class="block text-white hover:text-gray-300 transition-colors font-medium py-3 border-b border-white/10 mobile-menu-link"
 				>
 					About Us
 				</a>
-				<a 
-					href="/about#request-demo" 
+				<a
+					href="/about#request-demo"
 					class="block bg-white text-black font-semibold px-6 py-3 rounded-3xl text-center transition-colors shadow-sm hover:shadow-md mobile-menu-link mt-6"
 				>
 					Book a Demo
+				</a>
+				<a
+					href="https://app.valency.in/login"
+					class="block border border-white/50 text-white font-semibold px-6 py-3 rounded-3xl text-center transition-colors hover:bg-white/10 mobile-menu-link mt-3"
+				>
+					Login
 				</a>
 			</nav>
 		</div>
@@ -181,6 +266,22 @@ import logoLarge from '../assets/logo_large.png';
 
 	if (menuOverlay) {
 		menuOverlay.addEventListener('click', closeMenu);
+	}
+
+	// Mobile Products submenu
+	const productsToggle = document.getElementById('mobile-products-toggle');
+	const productsSubmenu = document.getElementById('mobile-products-submenu');
+	const productsChevron = document.getElementById('mobile-products-chevron');
+
+	if (productsToggle && productsSubmenu) {
+		productsToggle.addEventListener('click', () => {
+			const isOpen = !productsSubmenu.classList.contains('hidden');
+			productsSubmenu.classList.toggle('hidden', isOpen);
+			productsToggle.setAttribute('aria-expanded', String(!isOpen));
+			if (productsChevron) {
+				productsChevron.classList.toggle('rotate-180', !isOpen);
+			}
+		});
 	}
 
 	// Close menu when clicking on a link
