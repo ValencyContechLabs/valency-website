@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 ---
 
 <Layout>
@@ -43,7 +44,7 @@ import Footer from "../../components/Footer.astro";
         <div class="max-w-5xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Problem</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Problem</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">Equipment Costs Are a Black Box on Most Sites</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Heavy machinery is one of the most expensive line items in a project budget. Yet most sites have no real-time view of utilisation, fuel consumption, or which activities machines are being used for. Hire charges accumulate with no accountability.
@@ -65,7 +66,7 @@ import Footer from "../../components/Footer.astro";
               </ul>
             </div>
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Solution</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Solution</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">Full Visibility Into Every Machine on Your Site</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Valency's Machine Management module gives you a real-time view of every piece of equipment — what it's doing, who's operating it, how much fuel it's consuming, and what it's costing. Maintenance schedules keep downtime planned, not unplanned.
@@ -101,18 +102,18 @@ import Footer from "../../components/Footer.astro";
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "⏱️", title: "Hour Log & Utilisation", desc: "Operators log start and stop times by activity each shift. Productive hours, standby hours, and idle time tracked automatically." },
-              { icon: "⛽", title: "Fuel Consumption Tracking", desc: "Fuel issues recorded against specific machines. Litres per hour benchmarked against norms. Over-consumption flagged immediately." },
-              { icon: "👷", title: "Operator Assignment", desc: "Assign operators to machines by shift. Track operator-wise productivity and machine handling records over time." },
-              { icon: "🔧", title: "Maintenance Scheduling", desc: "Set periodic service intervals (by hours or date). Get alerts before scheduled maintenance is due. Log completed maintenance with records." },
-              { icon: "📊", title: "Activity-Wise Cost Allocation", desc: "Machine hours logged against activities automatically calculate equipment cost per activity — feeding into project cost reports." },
-              { icon: "🚧", title: "Breakdown & Downtime Logging", desc: "Log breakdowns with cause and duration. Track downtime by machine over the project. Identify chronic failure patterns." },
-              { icon: "📋", title: "Hire vs Own Tracking", desc: "Manage both owned and hired equipment. Track hire periods, rates, and cost-per-hour. Compare against own equipment economics." },
-              { icon: "📈", title: "Fleet Performance Dashboard", desc: "See all machines in one view — utilisation %, fuel efficiency, maintenance status, and cost-to-date for each piece of equipment." },
-              { icon: "🔔", title: "Alerts & Notifications", desc: "Alerts for machines approaching service intervals, excessive idle time, or fuel consumption deviating from norms." },
+              { icon: "clock", title: "Hour Log & Utilisation", desc: "Operators log start and stop times by activity each shift. Productive hours, standby hours, and idle time tracked automatically." },
+              { icon: "fuel", title: "Fuel Consumption Tracking", desc: "Fuel issues recorded against specific machines. Litres per hour benchmarked against norms. Over-consumption flagged immediately." },
+              { icon: "users", title: "Operator Assignment", desc: "Assign operators to machines by shift. Track operator-wise productivity and machine handling records over time." },
+              { icon: "wrench", title: "Maintenance Scheduling", desc: "Set periodic service intervals (by hours or date). Get alerts before scheduled maintenance is due. Log completed maintenance with records." },
+              { icon: "chart-bar", title: "Activity-Wise Cost Allocation", desc: "Machine hours logged against activities automatically calculate equipment cost per activity — feeding into project cost reports." },
+              { icon: "warning", title: "Breakdown & Downtime Logging", desc: "Log breakdowns with cause and duration. Track downtime by machine over the project. Identify chronic failure patterns." },
+              { icon: "clipboard-list", title: "Hire vs Own Tracking", desc: "Manage both owned and hired equipment. Track hire periods, rates, and cost-per-hour. Compare against own equipment economics." },
+              { icon: "trending-up", title: "Fleet Performance Dashboard", desc: "See all machines in one view — utilisation %, fuel efficiency, maintenance status, and cost-to-date for each piece of equipment." },
+              { icon: "bell", title: "Alerts & Notifications", desc: "Alerts for machines approaching service intervals, excessive idle time, or fuel consumption deviating from norms." },
             ].map(f => (
               <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
-                <div class="text-3xl mb-3">{f.icon}</div>
+                <div class="w-11 h-11 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-4"><FeatureIcon name={f.icon} class="w-6 h-6 text-slate-700" /></div>
                 <h3 class="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
               </div>

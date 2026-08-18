@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 ---
 
 <Layout>
@@ -26,7 +27,7 @@ import Footer from "../../components/Footer.astro";
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-title">Valency 360</h1>
           <p class="text-xl md:text-2xl text-white/85 leading-relaxed hero-desc max-w-3xl">
-            One platform. Six powerful modules. Complete visibility across every aspect of your construction project — from the first day on site to final handover.
+            One platform. Seven powerful modules. Complete visibility across every aspect of your construction project — from the first day on site to final handover.
           </p>
           <div class="hero-cta flex flex-wrap gap-4 mt-10">
             <a href="/about#request-demo" class="bg-white text-black font-semibold px-7 py-3 rounded-full hover:bg-gray-100 transition-colors">Book a Demo</a>
@@ -46,7 +47,7 @@ import Footer from "../../components/Footer.astro";
           </p>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
             {[
-              { num: "6", label: "Integrated Modules" },
+              { num: "7", label: "Integrated Modules" },
               { num: "1", label: "Unified Dashboard" },
               { num: "100%", label: "Automated Billing" },
               { num: "Real-time", label: "Project Insights" },
@@ -69,7 +70,7 @@ import Footer from "../../components/Footer.astro";
         <div class="max-w-5xl mx-auto">
           <div class="text-center mb-14">
             <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">What's Inside</p>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Six Modules, One Platform</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Seven Modules, One Platform</h2>
           </div>
           <div class="space-y-6">
             {[
@@ -103,6 +104,11 @@ import Footer from "../../components/Footer.astro";
                 title: "Machine Management",
                 desc: "Track equipment utilisation, fuel consumption, operator assignments, and maintenance schedules. Allocate machine costs directly to site activities for accurate cost reporting.",
               },
+              {
+                num: "07", color: "bg-cyan-600", link: "/products/rmc-concrete-management",
+                title: "RMC Concrete Management",
+                desc: "One platform for the concrete supply chain — from the request raised on site to the mixer dispatched, and from material inward to consumption. Live plant, queue, and pour status on a single shared dashboard.",
+              },
             ].map(mod => (
               <div class="flex gap-6 p-6 border border-gray-200 rounded-2xl hover:shadow-md transition-shadow group">
                 <div class={`flex-shrink-0 w-12 h-12 ${mod.color} rounded-xl flex items-center justify-center text-white font-bold text-sm`}>
@@ -135,38 +141,38 @@ import Footer from "../../components/Footer.astro";
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                icon: "⚡",
+                icon: "bolt",
                 title: "One-Click Automated Billing",
                 desc: "Daily data from labour, materials, and machines flows automatically into billing. Generate accurate invoices in seconds — no manual compilation, no errors.",
               },
               {
-                icon: "📡",
+                icon: "signal",
                 title: "Real-Time Project Dashboard",
                 desc: "Every project stakeholder — from site engineer to MD — sees the same live data. No more waiting for weekly reports that are already outdated.",
               },
               {
-                icon: "🔗",
+                icon: "link",
                 title: "Fully Integrated Modules",
                 desc: "A work order triggers a purchase order, which updates material stock, which reflects in cost reports — all automatically. No re-entry, no data loss.",
               },
               {
-                icon: "📱",
+                icon: "device-phone",
                 title: "Works On-Site, Offline Too",
                 desc: "Field teams capture data from mobile devices even in low-connectivity zones. Data syncs automatically when connection is restored.",
               },
               {
-                icon: "🔐",
+                icon: "lock",
                 title: "Role-Based Access Control",
                 desc: "Site supervisors, project managers, procurement heads, and management each see exactly the information they need — no more, no less.",
               },
               {
-                icon: "📊",
+                icon: "chart-bar",
                 title: "Automated Projections & Forecasting",
                 desc: "The system projects completion dates, cost-at-completion, and resource requirements based on current progress — so you can act before problems occur.",
               },
             ].map(b => (
               <div class="flex gap-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-white border border-gray-200 rounded-xl flex items-center justify-center text-2xl shadow-sm">{b.icon}</div>
+                <div class="flex-shrink-0 w-12 h-12 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-sm"><FeatureIcon name={b.icon} class="w-6 h-6 text-gray-700" /></div>
                 <div>
                   <h3 class="text-base font-bold text-gray-900 mb-1">{b.title}</h3>
                   <p class="text-gray-600 text-sm leading-relaxed">{b.desc}</p>

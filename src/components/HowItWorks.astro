@@ -255,9 +255,18 @@
 						<div>
 							<h4 class="text-lg font-bold text-gray-900 mb-2">No Manual Work Required</h4>
 							<div class="space-y-2 text-gray-700">
-								<p>🚫 No manual calculations</p>
-								<p>🚫 No Excel spreadsheets</p>
-								<p>🚫 No reconciliation delays</p>
+								{[
+									"No manual calculations",
+									"No Excel spreadsheets",
+									"No reconciliation delays",
+								].map(item => (
+									<p class="flex items-center gap-2">
+										<svg class="w-4 h-4 flex-shrink-0 text-red-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+										</svg>
+										{item}
+									</p>
+								))}
 							</div>
 						</div>
 					</div>
