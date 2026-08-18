@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 ---
 
 <Layout>
@@ -43,7 +44,7 @@ import Footer from "../../components/Footer.astro";
         <div class="max-w-5xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Problem</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Problem</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">BOQs Live in Excel, Drawings on WhatsApp, Documents Everywhere</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Without a centralised document system, teams work from the wrong drawing revision, billing teams recreate data from scratch, and variation orders get lost. Every version mismatch costs time and money.
@@ -65,7 +66,7 @@ import Footer from "../../components/Footer.astro";
               </ul>
             </div>
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Solution</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Solution</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">One Place for Every Project Document — Live and Version-Controlled</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Valency's BOQ & Document Management module connects your quantities to your daily work. Progress is captured against BOQ line items, billing is generated automatically, and every document has a single controlled version.
@@ -101,18 +102,18 @@ import Footer from "../../components/Footer.astro";
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "📋", title: "Bill of Quantities (BOQ)", desc: "Upload and manage your BOQ with hierarchical work packages, unit rates, and quantities. Link each item to on-site progress." },
-              { icon: "📐", title: "Drawing Register", desc: "Centralised repository for all project drawings with revision control. Site teams always access the latest approved version." },
-              { icon: "📈", title: "Progress Billing", desc: "Site progress against BOQ line items auto-generates interim payment certificates and billing claims — in the exact format required." },
-              { icon: "🔄", title: "Variation Order Management", desc: "Raise, review, approve, and price variation orders with full workflow. Every VO linked to revised BOQ quantities and cost impact." },
-              { icon: "📄", title: "Specification Management", desc: "Store and link material and workmanship specifications to relevant BOQ items so site teams always know the required standard." },
-              { icon: "📁", title: "Document Version Control", desc: "Every document upload creates a new version. Previous versions are retained and accessible. No more 'which file is current?' confusion." },
-              { icon: "🔍", title: "RFI Tracking", desc: "Raise and track Requests for Information against specific drawings or spec clauses. Response times and status visible to all parties." },
-              { icon: "📊", title: "Cost vs Budget Dashboard", desc: "See BOQ budget vs committed costs vs actual spend in one view. Drill down to any work package at any time." },
-              { icon: "📤", title: "Export & Reporting", desc: "Export billing claims, progress reports, and cost summaries in standard formats for client submission or internal review." },
+              { icon: "clipboard-list", title: "Bill of Quantities (BOQ)", desc: "Upload and manage your BOQ with hierarchical work packages, unit rates, and quantities. Link each item to on-site progress." },
+              { icon: "layers", title: "Drawing Register", desc: "Centralised repository for all project drawings with revision control. Site teams always access the latest approved version." },
+              { icon: "trending-up", title: "Progress Billing", desc: "Site progress against BOQ line items auto-generates interim payment certificates and billing claims — in the exact format required." },
+              { icon: "arrow-path", title: "Variation Order Management", desc: "Raise, review, approve, and price variation orders with full workflow. Every VO linked to revised BOQ quantities and cost impact." },
+              { icon: "document-text", title: "Specification Management", desc: "Store and link material and workmanship specifications to relevant BOQ items so site teams always know the required standard." },
+              { icon: "folder", title: "Document Version Control", desc: "Every document upload creates a new version. Previous versions are retained and accessible. No more 'which file is current?' confusion." },
+              { icon: "search", title: "RFI Tracking", desc: "Raise and track Requests for Information against specific drawings or spec clauses. Response times and status visible to all parties." },
+              { icon: "chart-bar", title: "Cost vs Budget Dashboard", desc: "See BOQ budget vs committed costs vs actual spend in one view. Drill down to any work package at any time." },
+              { icon: "upload", title: "Export & Reporting", desc: "Export billing claims, progress reports, and cost summaries in standard formats for client submission or internal review." },
             ].map(f => (
               <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
-                <div class="text-3xl mb-3">{f.icon}</div>
+                <div class="w-11 h-11 rounded-xl bg-violet-50 border border-violet-100 flex items-center justify-center mb-4"><FeatureIcon name={f.icon} class="w-6 h-6 text-violet-700" /></div>
                 <h3 class="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
               </div>

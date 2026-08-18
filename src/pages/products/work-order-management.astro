@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 ---
 
 <Layout>
@@ -43,7 +44,7 @@ import Footer from "../../components/Footer.astro";
         <div class="max-w-5xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Problem</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Problem</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">Orders Raised in Emails, Approvals in WhatsApp, Tracking Nowhere</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Without a structured WO/PO system, subcontractor scope creep is invisible, procurement delays cascade into project delays, and invoice reconciliation becomes a monthly battle with no audit trail.
@@ -65,7 +66,7 @@ import Footer from "../../components/Footer.astro";
               </ul>
             </div>
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Solution</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Solution</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">Structured Procurement with Full ENFA Compliance</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Valency's WO & PO module brings every order into a single structured workflow — from creation through multi-level approval to closure. ENFA-ready with complete audit trails and seamless links to materials, billing, and site progress.
@@ -101,18 +102,18 @@ import Footer from "../../components/Footer.astro";
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "📝", title: "Work Order Creation", desc: "Issue work orders to subcontractors with defined scope, rate, quantities, and completion milestones. All parties get digital acknowledgement." },
-              { icon: "🛒", title: "Purchase Order Management", desc: "Raise POs linked to material indents and budget lines. Vendor details, delivery schedules, and terms captured at order stage." },
-              { icon: "✅", title: "Multi-Level Approval Workflows", desc: "Configure approval chains by order value, category, or department. Approvers notified instantly via app. No paper shuffling." },
-              { icon: "🔗", title: "ENFA Integration", desc: "Fully ENFA-compliant workflows for engineering, notification, and field activity management. Standard formats supported." },
-              { icon: "🔄", title: "Three-Way Matching", desc: "Automatically match Purchase Order → Goods Receipt Note → Supplier Invoice to prevent overpayment and duplicate billing." },
-              { icon: "📊", title: "PO vs Actual Tracking", desc: "Compare ordered quantities and values against actual receipts and consumption. Identify under-delivery or excess billing instantly." },
-              { icon: "📋", title: "Subcontractor WO Billing", desc: "Work order completion percentages feed directly into subcontractor billing — no separate billing sheets required." },
-              { icon: "🔔", title: "Expiry & Renewal Alerts", desc: "Get notified on work orders nearing completion dates, POs not yet delivered, or budget commitments approaching limits." },
-              { icon: "📁", title: "Document Attachment", desc: "Attach scope documents, drawings, BOQ extracts, and correspondence directly to each WO or PO for a complete record." },
+              { icon: "pencil-square", title: "Work Order Creation", desc: "Issue work orders to subcontractors with defined scope, rate, quantities, and completion milestones. All parties get digital acknowledgement." },
+              { icon: "cart", title: "Purchase Order Management", desc: "Raise POs linked to material indents and budget lines. Vendor details, delivery schedules, and terms captured at order stage." },
+              { icon: "check-badge", title: "Multi-Level Approval Workflows", desc: "Configure approval chains by order value, category, or department. Approvers notified instantly via app. No paper shuffling." },
+              { icon: "link", title: "ENFA Integration", desc: "Fully ENFA-compliant workflows for engineering, notification, and field activity management. Standard formats supported." },
+              { icon: "arrow-path", title: "Three-Way Matching", desc: "Automatically match Purchase Order → Goods Receipt Note → Supplier Invoice to prevent overpayment and duplicate billing." },
+              { icon: "chart-bar", title: "PO vs Actual Tracking", desc: "Compare ordered quantities and values against actual receipts and consumption. Identify under-delivery or excess billing instantly." },
+              { icon: "clipboard-list", title: "Subcontractor WO Billing", desc: "Work order completion percentages feed directly into subcontractor billing — no separate billing sheets required." },
+              { icon: "bell", title: "Expiry & Renewal Alerts", desc: "Get notified on work orders nearing completion dates, POs not yet delivered, or budget commitments approaching limits." },
+              { icon: "folder", title: "Document Attachment", desc: "Attach scope documents, drawings, BOQ extracts, and correspondence directly to each WO or PO for a complete record." },
             ].map(f => (
               <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
-                <div class="text-3xl mb-3">{f.icon}</div>
+                <div class="w-11 h-11 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center mb-4"><FeatureIcon name={f.icon} class="w-6 h-6 text-orange-700" /></div>
                 <h3 class="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
               </div>

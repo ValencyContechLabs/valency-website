@@ -6,7 +6,7 @@ import logoLarge from "../assets/logo_large.png";
   <div class="container mx-auto px-2 sm:px-4 lg:px-6">
     <!-- Contact Section -->
     <div class="border-t border-white/20 pt-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
         <!-- Left Side: Logo -->
         <div class="flex-shrink-0 flex justify-center md:justify-start mb-6 md:mb-0">
           <a
@@ -16,7 +16,7 @@ import logoLarge from "../assets/logo_large.png";
             <img
               src={logoLarge.src}
               alt="Valency Logo"
-              class="h-16 md:h-32 lg:h-[300px] w-auto"
+              class="h-16 md:h-32 lg:h-[300px] w-auto max-w-full object-contain"
             />
           </a>
         </div>
@@ -29,6 +29,27 @@ import logoLarge from "../assets/logo_large.png";
             <li class="text-white/90 hover:text-white transition-colors text-base md:text-base">Live Task Tracking</li>
             <li class="text-white/90 hover:text-white transition-colors text-base md:text-base">Vendor Management</li>
             <li class="text-white/90 hover:text-white transition-colors text-base md:text-base">Labour Efficiency Tools</li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="space-y-4 mb-8 md:mb-0">
+          <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white">Company</h3>
+          <ul class="space-y-2 md:space-y-3">
+            <li>
+              <a
+                href="/privacy-policy"
+                class="text-white/90 hover:text-white transition-colors text-base md:text-base"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                href="/cookies-policy"
+                class="text-white/90 hover:text-white transition-colors text-base md:text-base"
+                >Cookies Policy</a
+              >
+            </li>
           </ul>
         </div>
 

@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 ---
 
 <Layout>
@@ -43,7 +44,7 @@ import Footer from "../../components/Footer.astro";
         <div class="max-w-5xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Problem</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Problem</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">Quality Checks Happen on Paper — or Not at All</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Without a structured QC system, defects are caught late (or not until client inspection), rework costs spiral, and there's no audit trail to protect your team in disputes. Paper-based inspection records get lost or go unactioned.
@@ -65,7 +66,7 @@ import Footer from "../../components/Footer.astro";
               </ul>
             </div>
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Solution</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Solution</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">Digital Quality Control That Leaves No Room for Error</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Valency's QC module digitalises every inspection with structured checklists linked to work activities. NCRs are raised, tracked, and closed in the system. Every inspection is timestamped, geotagged, and backed by photo evidence.
@@ -101,18 +102,18 @@ import Footer from "../../components/Footer.astro";
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "✅", title: "Digital Inspection Checklists", desc: "Pre-configured or custom checklists for every work activity — concrete, masonry, waterproofing, MEP, and more. Site teams complete on mobile." },
-              { icon: "📋", title: "Inspection Request & Schedule", desc: "Raise inspection requests for specific activities. QC team notified automatically. Inspection scheduled and tracked to completion." },
-              { icon: "🚫", title: "NCR (Non-Conformance) Management", desc: "Raise NCRs with description, photos, and severity level. Assign to responsible party with due date. Track status until closure." },
-              { icon: "📸", title: "Photo & Evidence Capture", desc: "Capture photos directly within the inspection or NCR. Time-stamped and geo-tagged. Irrefutable evidence for any dispute." },
-              { icon: "🔧", title: "Defect & Punch List", desc: "Log defects at any stage. Generate a pre-handover punch list with status tracking. Ensure zero open defects at handover." },
-              { icon: "🧪", title: "Test & Material Certificates", desc: "Record lab test results, material test certificates, and third-party inspection reports linked to specific work activities." },
-              { icon: "📊", title: "QC Dashboard", desc: "Live view of inspection completion rates, open NCRs, overdue corrective actions, and quality trend by activity or contractor." },
-              { icon: "🔔", title: "Quality Holds", desc: "Place a quality hold on any activity to prevent further work until an inspection or NCR is resolved. Hold lifted with approval." },
-              { icon: "📄", title: "Quality Reports", desc: "Generate inspection summary reports, NCR reports, and quality registers in standard formats for client submission or internal audit." },
+              { icon: "check-badge", title: "Digital Inspection Checklists", desc: "Pre-configured or custom checklists for every work activity — concrete, masonry, waterproofing, MEP, and more. Site teams complete on mobile." },
+              { icon: "clipboard-list", title: "Inspection Request & Schedule", desc: "Raise inspection requests for specific activities. QC team notified automatically. Inspection scheduled and tracked to completion." },
+              { icon: "no-symbol", title: "NCR (Non-Conformance) Management", desc: "Raise NCRs with description, photos, and severity level. Assign to responsible party with due date. Track status until closure." },
+              { icon: "camera", title: "Photo & Evidence Capture", desc: "Capture photos directly within the inspection or NCR. Time-stamped and geo-tagged. Irrefutable evidence for any dispute." },
+              { icon: "wrench", title: "Defect & Punch List", desc: "Log defects at any stage. Generate a pre-handover punch list with status tracking. Ensure zero open defects at handover." },
+              { icon: "beaker", title: "Test & Material Certificates", desc: "Record lab test results, material test certificates, and third-party inspection reports linked to specific work activities." },
+              { icon: "chart-bar", title: "QC Dashboard", desc: "Live view of inspection completion rates, open NCRs, overdue corrective actions, and quality trend by activity or contractor." },
+              { icon: "bell", title: "Quality Holds", desc: "Place a quality hold on any activity to prevent further work until an inspection or NCR is resolved. Hold lifted with approval." },
+              { icon: "document-text", title: "Quality Reports", desc: "Generate inspection summary reports, NCR reports, and quality registers in standard formats for client submission or internal audit." },
             ].map(f => (
               <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
-                <div class="text-3xl mb-3">{f.icon}</div>
+                <div class="w-11 h-11 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center mb-4"><FeatureIcon name={f.icon} class="w-6 h-6 text-rose-700" /></div>
                 <h3 class="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
               </div>

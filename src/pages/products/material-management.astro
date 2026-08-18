@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import FeatureIcon from "../../components/FeatureIcon.astro";
 ---
 
 <Layout>
@@ -43,7 +44,7 @@ import Footer from "../../components/Footer.astro";
         <div class="max-w-5xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Problem</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Problem</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">Material Costs Are Spiralling — and Nobody Knows Why</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Materials typically account for 50–60% of a construction project's cost. Yet most sites have no real-time view of stock levels, consumption, or wastage. By the time discrepancies surface, the budget is already blown.
@@ -65,7 +66,7 @@ import Footer from "../../components/Footer.astro";
               </ul>
             </div>
             <div>
-              <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">The Solution</p>
+              <p class="text-sm font-semibold uppercase tracking-widest text-gray-900 mb-3">The Solution</p>
               <h2 class="text-3xl font-bold text-gray-900 mb-6">Full Visibility from Indent to Consumption</h2>
               <p class="text-gray-600 leading-relaxed mb-6">
                 Valency's Material Management module tracks every material transaction in real time — from the initial indent through delivery (GRN) to site-level consumption. Always know what you have, what you've used, and what it's cost.
@@ -101,18 +102,18 @@ import Footer from "../../components/Footer.astro";
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: "📝", title: "Material Indent", desc: "Site teams raise digital indents for required materials. Requests routed to the right approver instantly with full audit trail." },
-              { icon: "🚛", title: "Goods Receipt Note (GRN)", desc: "Record deliveries on mobile at the gate. Quantity, quality checks, and supplier details captured before material enters store." },
-              { icon: "📦", title: "Stock Ledger", desc: "Live stock register for each store location. View opening balance, receipts, issues, and closing stock in real time." },
-              { icon: "🔧", title: "Material Issue to Work", desc: "Issue materials to specific activities or subcontractors with digital acknowledgements. No more unaccounted issues." },
-              { icon: "📉", title: "Wastage & Reconciliation", desc: "Compare theoretical consumption against actual to identify wastage, spillage, or pilferage automatically." },
-              { icon: "📊", title: "BOQ vs Actual Comparison", desc: "See at a glance whether each material is within budget or over-consumed relative to BOQ allocations." },
-              { icon: "🔄", title: "Material Return Management", desc: "Track materials returned from site to store or to vendors. Every transaction is logged and reconciled." },
-              { icon: "🏭", title: "Supplier & Vendor Tracking", desc: "Maintain vendor records, rate contracts, and delivery performance history for every supplier." },
-              { icon: "🔔", title: "Low Stock Alerts", desc: "Set reorder thresholds. Get automated alerts when critical materials fall below minimum levels." },
+              { icon: "pencil-square", title: "Material Indent", desc: "Site teams raise digital indents for required materials. Requests routed to the right approver instantly with full audit trail." },
+              { icon: "truck", title: "Goods Receipt Note (GRN)", desc: "Record deliveries on mobile at the gate. Quantity, quality checks, and supplier details captured before material enters store." },
+              { icon: "cube", title: "Stock Ledger", desc: "Live stock register for each store location. View opening balance, receipts, issues, and closing stock in real time." },
+              { icon: "wrench", title: "Material Issue to Work", desc: "Issue materials to specific activities or subcontractors with digital acknowledgements. No more unaccounted issues." },
+              { icon: "trending-down", title: "Wastage & Reconciliation", desc: "Compare theoretical consumption against actual to identify wastage, spillage, or pilferage automatically." },
+              { icon: "chart-bar", title: "BOQ vs Actual Comparison", desc: "See at a glance whether each material is within budget or over-consumed relative to BOQ allocations." },
+              { icon: "arrow-path", title: "Material Return Management", desc: "Track materials returned from site to store or to vendors. Every transaction is logged and reconciled." },
+              { icon: "building", title: "Supplier & Vendor Tracking", desc: "Maintain vendor records, rate contracts, and delivery performance history for every supplier." },
+              { icon: "bell", title: "Low Stock Alerts", desc: "Set reorder thresholds. Get automated alerts when critical materials fall below minimum levels." },
             ].map(f => (
               <div class="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
-                <div class="text-3xl mb-3">{f.icon}</div>
+                <div class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-4"><FeatureIcon name={f.icon} class="w-6 h-6 text-emerald-700" /></div>
                 <h3 class="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
               </div>
